@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const postSchema = new Schema({
-    firstName: String,
-    lastName: String,
-    dateOfBirth: Date,    
-    groupId: Schema.Types.ObjectId,
-    attendance: String
+    title: String,
+    body: String,
+    date: Date,    
+    postId: Schema.Types.ObjectId,
+    author: String
 })
 
 
