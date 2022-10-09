@@ -15,8 +15,12 @@ router.post('/newPost', async (req, res) => {
   // ovdje postavljam novi post
 });
 
-router .put('/edit/:id', async (req, res) => {
+router.put('/edit/:id', async (req, res) => {
   // ovdje mijenjam post sa navedenim id
 });
+
+router.delete('/:id', async (req, res) => {
+  // ovdje brišem post sa navedenim id
+})
 
 module.exports = router;
