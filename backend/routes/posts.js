@@ -11,4 +11,9 @@ router.get('/:id', async (req, res) => {
   // ovdje tražim jedan post sa navedenim id
 });
 
+router.post('/newPost', async (req, res) => {
+  // ovdje postavljam novi post
+});
+
+
 module.exports = router;
