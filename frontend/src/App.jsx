@@ -5,8 +5,9 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      Ovo je moj Blog sajt
+      <div className="container">
+        <Header />
+      </div>
     </div>
   )
 }
