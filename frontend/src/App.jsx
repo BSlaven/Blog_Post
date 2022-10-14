@@ -4,6 +4,7 @@ import './App.css'
 import Layout from './components/Layout';
 import Posts from './components/Posts';
 import PostPage from './components/PostPage';
+import NewPost from './components/NewPost';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
             <Route path='post'>
               <Route index element={<PostPage />} />
             </Route>
+            <Route path='new' element={<NewPost />} />
           </Route>
         </Routes>
       </Router>
