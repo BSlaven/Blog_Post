@@ -4,8 +4,14 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <header className='header'>
-      <Link to="/post">One post</Link>
-      <Link to="/">All posts</Link>
+      <nav>
+        <li>
+          <Link to="/post">One post</Link>
+        </li>
+        <li>
+          <Link to="/">All posts</Link>
+        </li>
+      </nav>
     </header>
   )
 }
