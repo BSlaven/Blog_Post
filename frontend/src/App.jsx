@@ -4,7 +4,6 @@ import './App.css'
 import Layout from './components/Layout';
 import Posts from './components/Posts';
 import PostPage from './components/PostPage';
-import Header from './components/Header';
 
 function App() {
 
