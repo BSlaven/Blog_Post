@@ -21,10 +21,29 @@ body {
 }
 
 .header {
+  background-color: transparent;
+  color: #333;
   padding: 1.5rem 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
-  color: black
+  border: 1px solid red;
 }
+
+.header nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  list-style-type: none;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+
+
