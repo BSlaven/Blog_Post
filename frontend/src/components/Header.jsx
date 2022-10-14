@@ -7,10 +7,10 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link className='nav-link' to="post">One post</Link>
+            <Link className='nav-link' to="/">All posts</Link>
           </li>
           <li>
-            <Link className='nav-link' to="/">All posts</Link>
+            <Link className='nav-link' to="post">New Post</Link>
           </li>
         </ul>
       </nav>
