@@ -2,7 +2,9 @@ import React from 'react'
 
 const Posts = () => {
   return (
-    <div>all posts</div>
+    <div>
+      Ovo je komponenta za sve postove.
+    </div>
   )
 }
 
