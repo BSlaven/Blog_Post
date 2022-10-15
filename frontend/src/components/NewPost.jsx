@@ -1,11 +1,6 @@
 import React from 'react';
-import EditorJS from '@editorjs/editorjs';
 
 const NewPost = () => {
-
-  const editor = new EditorJS({
-    holder: 'editorjs'
-  });
 
   return (
     <div className="form-container">
@@ -13,7 +8,6 @@ const NewPost = () => {
       <form className="form">
         <input type="text" name="post-title" id="post-title" />
       </form>
-      <div id='editorjs' className="editor"></div>
     </div>
   )
 }
