@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 const NewPost = () => {
   return (
-    <div>Ovo je stranica za novi post.</div>
+    <ReactMarkdown>
+      # Hello, *world*!
+    </ReactMarkdown>
+    // <div>Ovo je stranica za novi post.</div>
   )
 }
 
