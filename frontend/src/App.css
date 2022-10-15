@@ -52,12 +52,18 @@ body {
   color: rgb(3, 0, 29);
 }
 
-.editor {
+.form-container {
+  border: 1px solid red;
   width: 100%;
   max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.editor {
+  width: 100%;
   background-color: #fff;
   color: rgb(10, 0, 104);
-  margin: 0 auto;
   padding: 1rem;
   border: 1px solid rgb(189, 189, 189);
   border-radius: 3px;
