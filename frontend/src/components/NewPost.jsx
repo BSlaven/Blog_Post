@@ -9,9 +9,9 @@ const NewPost = () => {
 
   return (
     <div className="form-container">
-      <h3>Create New Post</h3>
+      <h3 className='form-title'>Create New Post</h3>
       <form className="form">
-
+        <input type="text" name="post-title" id="post-title" />
       </form>
       <div id='editorjs' className="editor"></div>
     </div>
