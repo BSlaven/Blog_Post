@@ -51,3 +51,14 @@ body {
   color: red;
   color: rgb(3, 0, 29);
 }
+
+.editor {
+  width: 100%;
+  max-width: 800px;
+  background-color: #fff;
+  color: rgb(10, 0, 104);
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid rgb(189, 189, 189);
+  border-radius: 3px;
+}
