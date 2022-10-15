@@ -9,11 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@editorjs/editorjs": "^2.25.0",
     "date-fns": "^2.29.3",
     "draft-js": "^0.11.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-editor-js": "^2.1.0",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.2"
   },
