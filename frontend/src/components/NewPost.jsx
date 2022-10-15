@@ -1,11 +1,17 @@
 import React from 'react';
 import EditorJS from '@editorjs/editorjs';
 
-const editor = new EditorJS();
 
 const NewPost = () => {
+
+  const editor = new EditorJS({
+    holder: 'editorjs'
+  });
+  
   return (
-    <div>Ovo je stranica za novi post.</div>
+    <div id='editorjs'>
+
+    </div>
   )
 }
 
