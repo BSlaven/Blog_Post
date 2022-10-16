@@ -8,7 +8,9 @@ const DraftEditor = () => {
   )
   
   return (
-    <Editor editorState={editorState} onChange={setEditorState} />
+    <div>
+      <Editor editorState={editorState} onChange={setEditorState} />
+    </div>
   )
 }
 
