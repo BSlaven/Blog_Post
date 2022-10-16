@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react';
+import DraftEditor from './DraftEditor';
 
 const NewPost = () => {
+
   return (
-    <div>Ovo je stranica za novi post.</div>
+    <div className="form-container">
+      <h3 className='form-title'>Create New Post</h3>
+      <form className="form">
+        <input type="text" name="post-title" id="post-title" />
+        <DraftEditor />
+      </form>
+    </div>
   )
 }
 
