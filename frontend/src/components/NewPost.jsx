@@ -19,7 +19,7 @@ const NewPost = () => {
           <label htmlFor="post-content">Content</label>
           <DraftEditor />
         </div>
-        <button type='submit'>Save post</button>
+        <button type='submit' className='newPostBtn'>Save post</button>
       </form>
     </div>
   )
