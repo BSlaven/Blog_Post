@@ -51,8 +51,9 @@ body {
   color: rgb(3, 0, 29);
 }
 
+/* new post page */
 .form-container {
-  background-color: rgb(211, 202, 255);
+  background-color: #fff0eb;
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
@@ -68,18 +69,63 @@ body {
 
 .form {
   width: 100%;
-  /* border: 1px solid blue; */
   padding: 0 1.5rem;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.3rem;
+}
+
+.form-control > *:not(label) {
+  border-radius: 3px;
+  box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.1);
+}
+
+.form-control > *:focus {
+  outline: 1px solid #5e54c7;
+}
+
+.form-control label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.form-control input {
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
 }
 
 div.DraftEditor-root {
   background-color: #fffef7;
   width:100%;
   margin:auto;
-  box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.5);
   height:300px;
   overflow-y: auto;
   padding:20px;
   font-size:1.5rem;
   font-family: 'calibri', sans-serif;
+  border-radius: 3px;
 }
+
+button {
+  background-color: #5447e7;
+  color: #000;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  width: 150px;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:is(:hover, :focus) {
+  background-color: #4a3ecc;
+}
+/* new post page */
