@@ -84,7 +84,7 @@ body {
 }
 
 .form-control > *:focus {
-  outline: 1px solid #5e54c7;
+  outline: 1px solid #695ee0;
 }
 
 .form-control label {
