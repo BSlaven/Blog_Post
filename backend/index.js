@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const mongoose = require('mongoose')
 const cors = require('cors');
@@ -11,13 +12,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const postsRouter = require('./routes/posts');
-app.use('posts', postsRouter);
+app.use('/posts', postsRouter);
 
 mongoose
-  .connect(process.env.MONGO_DEV_URI, {
+  .connect(process.env.MONGO_DEVELOPMENT_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false    
+    useUnifiedTopology: true
   })
   .then(console.log("Database connected!"))
   .catch(err => console.log(err));

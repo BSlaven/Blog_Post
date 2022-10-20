@@ -13,7 +13,8 @@ router.get('/:id', async (req, res) => {
 
 router.post('/newPost', async (req, res) => {
   try {
-    const newPost = await Post.create(req.body.post);
+    console.log(req.body)
+    const newPost = await Post.create(req.body);
     console.log(newPost);
     res.status(200).json({
       msg: 'Kreiran je novi post'

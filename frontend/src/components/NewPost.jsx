@@ -3,6 +3,31 @@ import DraftEditor from './DraftEditor';
 
 const NewPost = () => {
 
+  const createNewPost = async (e) => {
+    const myPost = {
+      title: 'Ovo je naslov prvog posta',
+      body: 'Ovo je tijelo prvog posta',
+      createdAt: Date.now(), 
+      author: 'Slaven Bunijevac'
+    }
+
+    const newlyCreatedPost = await fetch('http://localhost:3001/posts/newPost', {
+      method: 'POST',
+      headers: {
+        'Accept':'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(myPost)
+    })
+
+    // const response = await newlyCreatedPost.json();
+    if(newlyCreatedPost.ok) {
+      console.log('uspješno si kreirao novi post')
+    } else {
+      console.log('napravio si grešku glupane')
+    }
+  }
+
   return (
     <div className="form-container">
       <h3 className='form-title'>Create new post</h3>
