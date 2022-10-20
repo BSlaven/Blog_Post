@@ -8,8 +8,13 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-
-  // ovdje tražim jedan post sa navedenim id
+  try {
+    const { id } = req.params.id;
+    const post = await Post.findById(id);
+    res.status(200).send(post);
+  } catch(error) {
+    console.log(error)
+  }
 });
 
 router.post('/newPost', async (req, res) => {
