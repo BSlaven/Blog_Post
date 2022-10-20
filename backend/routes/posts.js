@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const { id } = req.params.id;
+    const id = req.params.id;
     const post = await Post.findById(id);
     res.status(200).send(post);
   } catch(error) {
