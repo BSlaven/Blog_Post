@@ -4,7 +4,12 @@ const Post = require('../models/postModel');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  // ovdje tražim sve postove
+  try {
+    const allPosts = await Post.find();
+    res.status(200).send(allPosts);
+  } catch(error) {
+    console.log(error);
+  }
 });
 
 router.get('/:id', async (req, res) => {
