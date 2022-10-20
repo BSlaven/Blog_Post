@@ -12,7 +12,15 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/newPost', async (req, res) => {
-  // ovdje postavljam novi post
+  try {
+    const newPost = await Post.create(req.body.post);
+    console.log(newPost);
+    res.status(200).json({
+      msg: 'Kreiran je novi post'
+    })
+  } catch(e) {
+    console.log(e);
+  }
 });
 
 router.put('/edit/:id', async (req, res) => {
