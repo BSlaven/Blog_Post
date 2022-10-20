@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const mongoose = require('mongoose')
 const cors = require('cors');
@@ -13,10 +14,8 @@ app.use(bodyParser.json());
 const postsRouter = require('./routes/posts');
 app.use('/posts', postsRouter);
 
-console.log('Ovo je moj process.env: ', process.env.MONGO_DEVELOPMENT_URI)
-
 mongoose
-  .connect('mongodb+srv://bslaven:suncaneulice@cluster0.azhgugx.mongodb.net/?retryWrites=true&w=majority', {
+  .connect(process.env.MONGO_DEVELOPMENT_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
