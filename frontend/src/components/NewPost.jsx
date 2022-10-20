@@ -21,6 +21,7 @@ const NewPost = () => {
         </div>
         <button type='submit' className='newPostBtn'>Save post</button>
       </form>
+      <button>Demo new post</button>
     </div>
   )
 }
