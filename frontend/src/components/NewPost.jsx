@@ -3,6 +3,12 @@ import DraftEditor from './DraftEditor';
 
 const NewPost = () => {
 
+  const createNewPost = e => {
+    const myPost = {
+      
+    }
+  }
+
   return (
     <div className="form-container">
       <h3 className='form-title'>Create new post</h3>
@@ -21,7 +27,7 @@ const NewPost = () => {
         </div>
         <button type='submit' className='newPostBtn'>Save post</button>
       </form>
-      <button>Demo new post</button>
+      <button onClick={createNewPost}>Demo new post</button>
     </div>
   )
 }
