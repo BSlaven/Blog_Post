@@ -8,14 +8,13 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
+
   // ovdje tražim jedan post sa navedenim id
 });
 
 router.post('/newPost', async (req, res) => {
   try {
-    console.log(req.body)
     const newPost = await Post.create(req.body);
-    console.log(newPost);
     res.status(200).json({
       msg: 'Kreiran je novi post'
     })
