@@ -11,13 +11,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const postsRouter = require('./routes/posts');
-app.use('posts', postsRouter);
+app.use('/posts', postsRouter);
+
+console.log('Ovo je moj process.env: ', process.env.MONGO_DEVELOPMENT_URI)
 
 mongoose
-  .connect(process.env.MONGO_DEV_URI, {
+  .connect('mongodb+srv://bslaven:suncaneulice@cluster0.azhgugx.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false    
+    // useFindAndModify: false    
   })
   .then(console.log("Database connected!"))
   .catch(err => console.log(err));
