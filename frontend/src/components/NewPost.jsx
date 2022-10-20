@@ -31,9 +31,12 @@ const NewPost = () => {
   const getOne = async (e) => {
     const response = await fetch(`http://localhost:3001/posts/63513b1221880293adde8ae0`)
     const onePost = await response.json();
-    console.log(onePost);
   }
 
+  const getAllPosts = async (e) => {
+    const response = await fetch('http://localhost:3001/posts');
+    const posts = await response.json();
+  }
 
   return (
     <div className="form-container">
@@ -53,8 +56,8 @@ const NewPost = () => {
         </div>
         <button type='submit' className='newPostBtn'>Save post</button>
       </form>
-
-      <button onClick={getOne}>get one</button>
+      
+      {/* <button onClick={getAllPosts}>get one</button> */}
     </div>
   )
 }
