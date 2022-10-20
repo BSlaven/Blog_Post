@@ -18,8 +18,7 @@ console.log('Ovo je moj process.env: ', process.env.MONGO_DEVELOPMENT_URI)
 mongoose
   .connect('mongodb+srv://bslaven:suncaneulice@cluster0.azhgugx.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    // useFindAndModify: false    
+    useUnifiedTopology: true
   })
   .then(console.log("Database connected!"))
   .catch(err => console.log(err));
