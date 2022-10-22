@@ -40,7 +40,10 @@ router.put('/edit/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const id = req.params.id
-    await Post.findByIdAndRemove(id)
+    await Post.findByIdAndRemove(id);
+    res.status(200).send({
+      msg: 'Post je uspješno obrisan'
+    })
   } catch (error) {
     console.log(error);
   }
