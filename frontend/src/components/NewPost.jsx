@@ -40,6 +40,15 @@ const NewPost = () => {
     const posts = await response.json();
   }
 
+  // DELETE POST
+  const deletePost = async (e) => {
+    const response = await fetch(`http://localhost:3001/posts/63513b1221880293adde8ae0`, {
+      method: 'DELETE'
+    })
+    const deletedPost = await response.json();
+    console.log(deletedPost);
+  }
+
   return (
     <div className="form-container">
       <h3 className='form-title'>Create new post</h3>
