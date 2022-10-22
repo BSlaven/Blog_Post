@@ -38,7 +38,15 @@ router.put('/edit/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-  // ovdje brišem post sa navedenim id
+  try {
+    const id = req.params.id
+    await Post.findByIdAndRemove(id);
+    res.status(200).send({
+      msg: 'Post je uspješno obrisan'
+    })
+  } catch (error) {
+    console.log(error);
+  }
 })
 
 module.exports = router;
