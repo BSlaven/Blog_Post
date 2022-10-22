@@ -3,6 +3,11 @@ import DraftEditor from './DraftEditor';
 
 const NewPost = () => {
 
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+    createNewPost();
+  }
+
   const createNewPost = async (e) => {
     const myPost = {
       title: 'Ovo je naslov prvog posta',
@@ -30,7 +35,7 @@ const NewPost = () => {
 
   // FETCH ONE POST BY ID
   const getOne = async (e) => {
-    const response = await fetch(`http://localhost:3001/posts/63513b1221880293adde8ae0`)
+    const response = await fetch(`http://localhost:3001/posts/635460908162c6f3b2184859`)
     const onePost = await response.json();
   }
 
@@ -42,17 +47,16 @@ const NewPost = () => {
 
   // DELETE POST
   const deletePost = async (e) => {
-    const response = await fetch(`http://localhost:3001/posts/63513b1221880293adde8ae0`, {
+    const response = await fetch(`http://localhost:3001/posts/63546373d500911774e25f1e`, {
       method: 'DELETE'
     })
     const deletedPost = await response.json();
-    console.log(deletedPost);
   }
 
   return (
     <div className="form-container">
       <h3 className='form-title'>Create new post</h3>
-      <form className="form">
+      <form className="form" onSubmit={formSubmitHandler}>
         <div className="form-control">
           <label htmlFor="post-title">Title</label>
           <input type="text" name="post-title" id="post-title" />
@@ -68,7 +72,7 @@ const NewPost = () => {
         <button type='submit' className='newPostBtn'>Save post</button>
       </form>
       
-      {/* <button onClick={getAllPosts}>get one</button> */}
+      {/* <button onClick={deletePost}>delete one</button> */}
     </div>
   )
 }
