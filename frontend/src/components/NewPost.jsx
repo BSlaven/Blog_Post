@@ -71,6 +71,9 @@ const NewPost = () => {
       },
       body: JSON.stringify(updatedPost)
     })
+
+    const postUpdateResponse = await response.json();
+    console.log(postUpdateResponse);
   }
 
   return (
