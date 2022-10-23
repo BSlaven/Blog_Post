@@ -38,7 +38,10 @@ router.put('/edit/:id', async (req, res) => {
     const id = req.params.id;
     await Post.findByIdAndUpdate(id, req.body, (err, post) => {
       if(err) {
-        console.log(err)
+        res.status(400).json({
+          msg: 'Niste uspješno izmijenili post'
+        })
+        console.log(err);
       } else {
         res.status(200).json({
           msg: 'Upsješno ste izmijenili post',
@@ -47,9 +50,7 @@ router.put('/edit/:id', async (req, res) => {
       }
     })
   } catch (error) {
-    res.status(400).json({
-      msg: 'Niste uspješno izmijenili post'
-    })
+    console.log(error)
   }
 });
 

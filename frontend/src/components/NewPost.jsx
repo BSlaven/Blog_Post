@@ -47,23 +47,26 @@ const NewPost = () => {
 
   // DELETE POST
   const deletePost = async (e) => {
-    const response = await fetch(`http://localhost:3001/posts/63546373d500911774e25f1e`, {
+    const response = await fetch(`http://localhost:3001/posts/6355ba2e404ef09e0c5c163f`, {
       method: 'DELETE'
     })
+
     const deletedPost = await response.json();
+    console.log(deletedPost)
   }
 
   // UPDATE POST
   const updatePost = async (e) => {
+    console.log('unutar updatePost metode')
 
     const updatedPost = {
       title: 'Ovo je izmijenjen naslov prvog posta',
-      body: 'Ovo je tijelo prvog posta',
+      body: 'Ovo je novo tijelo prvog posta',
       createdAt: Date.now(),
       author: 'Slaven Bunijevac'
     }
 
-    const response = await fetch(`http://localhost:3001/posts/edit/6355ba2e404ef09e0c5c163f`, {
+    const response = await fetch(`http://localhost:3001/posts/edit/6355c00851364b05946cc917`, {
       method: 'PUT',
       headers: {
         'Accept':'application/json',
