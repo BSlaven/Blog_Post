@@ -55,17 +55,22 @@ const NewPost = () => {
 
   // UPDATE POST
   const updatePost = async (e) => {
-    
 
-    const response = await fetch(`http://localhost:3001/posts/63546373d500911774e25f1e`, {
+    const updatedPost = {
+      title: 'Ovo je izmijenjen naslov prvog posta',
+      body: 'Ovo je tijelo prvog posta',
+      createdAt: Date.now(),
+      author: 'Slaven Bunijevac'
+    }
+
+    const response = await fetch(`http://localhost:3001/posts/edit/6355ba2e404ef09e0c5c163f`, {
       method: 'PUT',
       headers: {
         'Accept':'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(myPost)
+      body: JSON.stringify(updatedPost)
     })
-    const deletedPost = await response.json();
   }
 
   return (

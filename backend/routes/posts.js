@@ -34,6 +34,8 @@ router.post('/newPost', async (req, res) => {
 });
 
 router.put('/edit/:id', async (req, res) => {
+  const id = req.params.id;
+  
   // ovdje mijenjam post sa navedenim id
 });
 
