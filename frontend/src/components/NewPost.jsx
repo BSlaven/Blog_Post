@@ -53,6 +53,21 @@ const NewPost = () => {
     const deletedPost = await response.json();
   }
 
+  // UPDATE POST
+  const updatePost = async (e) => {
+    
+
+    const response = await fetch(`http://localhost:3001/posts/63546373d500911774e25f1e`, {
+      method: 'PUT',
+      headers: {
+        'Accept':'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(myPost)
+    })
+    const deletedPost = await response.json();
+  }
+
   return (
     <div className="form-container">
       <h3 className='form-title'>Create new post</h3>
@@ -72,7 +87,7 @@ const NewPost = () => {
         <button type='submit' className='newPostBtn'>Save post</button>
       </form>
       
-      {/* <button onClick={deletePost}>delete one</button> */}
+      <button onClick={updatePost}>delete one</button>
     </div>
   )
 }
