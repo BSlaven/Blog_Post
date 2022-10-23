@@ -34,7 +34,24 @@ router.post('/newPost', async (req, res) => {
 });
 
 router.put('/edit/:id', async (req, res) => {
-  // ovdje mijenjam post sa navedenim id
+  try {
+    const id = req.params.id;
+    await Post.findByIdAndUpdate(id, req.body, (err, post) => {
+      if(err) {
+        res.status(400).json({
+          msg: 'Niste uspješno izmijenili post'
+        })
+        console.log(err);
+      } else {
+        res.status(200).json({
+          msg: 'Upsješno ste izmijenili post',
+          post
+        })
+      }
+    })
+  } catch (error) {
+    console.log(error)
+  }
 });
 
 router.delete('/:id', async (req, res) => {
