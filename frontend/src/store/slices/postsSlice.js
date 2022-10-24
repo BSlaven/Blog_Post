@@ -70,7 +70,6 @@ const postsSlice = createSlice({
               state.status = 'loading'
           })
           .addCase(fetchAllPosts.fulfilled, (state, action) => {
-              console.log(action.payload)
               state.status = 'succeeded'
 
               state.posts = action.payload;
