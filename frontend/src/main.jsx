@@ -13,12 +13,12 @@ store.dispatch(fetchAllPosts());
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
+      {/* <Router>
         <Routes>
           <Route to='/' element={<App />} />
         </Routes>
-      </Router>
-      {/* <App /> */}
+      </Router> */}
+      <App />
     </Provider>
   </React.StrictMode>
 )
