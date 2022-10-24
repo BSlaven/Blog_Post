@@ -6,21 +6,23 @@ import {
 } from "@reduxjs/toolkit";
 import { sub } from 'date-fns';
 
-// const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
+const backendURL = 'http://localhost:3001/posts';
 
 // const postsAdapter = createEntityAdapter({
 //   sortComparer: (a, b) => b.date.localeCompare(a.date)
 // })
 
-const initialState = postsAdapter.getInitialState({
+const initialState = {
   status: 'idle', //'idle' | 'loading' | 'succeeded' | 'failed'
   error: null,
-  count: 0
-})
+  posts: []
+}
 
-export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-  const response = await axios.get(POSTS_URL)
-  return response.data
+export const fetchAllPosts = createAsyncThunk('/posts/fetchAllPosts', async () => {
+  const response = await fetch(backendURL);
+  const posts = response.json();
+
+  return posts;
 })
 
 export const addNewPost = createAsyncThunk('posts/addNewPost', async (initialPost) => {
@@ -64,29 +66,15 @@ const postsSlice = createSlice({
   },
   extraReducers(builder) {
       builder
-          .addCase(fetchPosts.pending, (state, action) => {
+          .addCase(fetchAllPosts.pending, (state, action) => {
               state.status = 'loading'
           })
-          .addCase(fetchPosts.fulfilled, (state, action) => {
+          .addCase(fetchAllPosts.fulfilled, (state, action) => {
               state.status = 'succeeded'
-              // Adding date and reactions
-              let min = 1;
-              const loadedPosts = action.payload.map(post => {
-                  post.date = sub(new Date(), { minutes: min++ }).toISOString();
-                  post.reactions = {
-                      thumbsUp: 0,
-                      wow: 0,
-                      heart: 0,
-                      rocket: 0,
-                      coffee: 0
-                  }
-                  return post;
-              });
 
-              // Add any fetched posts to the array
-              postsAdapter.upsertMany(state, loadedPosts)
+              state.posts = action.payload;
           })
-          .addCase(fetchPosts.rejected, (state, action) => {
+          .addCase(fetchAllPosts.rejected, (state, action) => {
               state.status = 'failed'
               state.error = action.error.message
           })
@@ -136,21 +124,23 @@ const postsSlice = createSlice({
   }
 })
 
-export const { 
-  selectAll: selectAllPosts,
-  selectById: selectPostById,
-  selectIds: selectPostIds
-} = postsAdapter.getSelectors(state => state.posts)
+// export const { 
+//   selectAll: selectAllPosts,
+//   selectById: selectPostById,
+//   selectIds: selectPostIds
+// } = postsAdapter.getSelectors(state => state.posts)
 
-export const getPostsStatus = (state) => state.posts.status;
-export const getPostsError = (state) => state.posts.error;
-export const getCount = (state) => state.posts.count;
+// export const getPostsStatus = (state) => state.posts.status;
+// export const getPostsError = (state) => state.posts.error;
+// export const getCount = (state) => state.posts.count;
 
-export const selectPostsByUser = createSelector(
-  [selectAllPosts, (state, userId) => userId],
-  (posts, userId) => posts.filter(post => post.userId === userId)
-)
+// export const selectPostsByUser = createSelector(
+//   [selectAllPosts, (state, userId) => userId],
+//   (posts, userId) => posts.filter(post => post.userId === userId)
+// )
 
-export const { reactionAdded } = postsSlice.actions
+// export const { reactionAdded } = postsSlice.actions
+
+export const allPosts = state => state.posts;
 
 export default postsSlice.reducer
