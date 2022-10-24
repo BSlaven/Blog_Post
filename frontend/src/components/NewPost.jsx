@@ -39,12 +39,6 @@ const NewPost = () => {
     const onePost = await response.json();
   }
 
-  // FETCH ALL POSTS
-  const getAllPosts = async (e) => {
-    const response = await fetch('http://localhost:3001/posts');
-    const posts = await response.json();
-  }
-
   // DELETE POST
   const deletePost = async (e) => {
     const response = await fetch(`http://localhost:3001/posts/6355ba2e404ef09e0c5c163f`, {
