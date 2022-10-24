@@ -6,7 +6,7 @@ import {
 } from "@reduxjs/toolkit";
 import { sub } from 'date-fns';
 
-const backendURL = 'https://localhost:3001/posts';
+const backendURL = 'http://localhost:3001/posts';
 
 // const postsAdapter = createEntityAdapter({
 //   sortComparer: (a, b) => b.date.localeCompare(a.date)
@@ -18,16 +18,11 @@ const initialState = {
   posts: []
 }
 
-// FETCH ALL POSTS
-// const fetchAllPosts = async (e) => {
-//   const response = await fetch('http://localhost:3001/posts');
-//   const posts = await response.json();
-// }
-
 export const fetchAllPosts = createAsyncThunk('/posts/fetchAllPosts', async () => {
   const response = await fetch(backendURL);
-  console.log(response);
-  return response;
+  const posts = response.json();
+
+  return posts;
 })
 
 export const addNewPost = createAsyncThunk('posts/addNewPost', async (initialPost) => {
