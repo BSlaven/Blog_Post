@@ -15,12 +15,19 @@ const backendURL = 'https://localhost:3001/posts';
 const initialState = postsAdapter.getInitialState({
   status: 'idle', //'idle' | 'loading' | 'succeeded' | 'failed'
   error: null,
-  count: 0
+  posts: []
 })
 
-export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-  const response = await axios.get(POSTS_URL)
-  return response.data
+// FETCH ALL POSTS
+// const fetchAllPosts = async (e) => {
+//   const response = await fetch('http://localhost:3001/posts');
+//   const posts = await response.json();
+// }
+
+export const fetchAllPosts = createAsyncThunk('/posts/fetchAllPosts', async () => {
+  const response = await fetch(backendURL);
+  console.log(response);
+  return response;
 })
 
 export const addNewPost = createAsyncThunk('posts/addNewPost', async (initialPost) => {
@@ -64,29 +71,16 @@ const postsSlice = createSlice({
   },
   extraReducers(builder) {
       builder
-          .addCase(fetchPosts.pending, (state, action) => {
+          .addCase(fetchAllPosts.pending, (state, action) => {
               state.status = 'loading'
           })
-          .addCase(fetchPosts.fulfilled, (state, action) => {
+          .addCase(fetchAllPosts.fulfilled, (state, action) => {
+              console.log(action.payload)
               state.status = 'succeeded'
-              // Adding date and reactions
-              let min = 1;
-              const loadedPosts = action.payload.map(post => {
-                  post.date = sub(new Date(), { minutes: min++ }).toISOString();
-                  post.reactions = {
-                      thumbsUp: 0,
-                      wow: 0,
-                      heart: 0,
-                      rocket: 0,
-                      coffee: 0
-                  }
-                  return post;
-              });
 
-              // Add any fetched posts to the array
-              postsAdapter.upsertMany(state, loadedPosts)
+              state.posts = action.payload;
           })
-          .addCase(fetchPosts.rejected, (state, action) => {
+          .addCase(fetchAllPosts.rejected, (state, action) => {
               state.status = 'failed'
               state.error = action.error.message
           })
