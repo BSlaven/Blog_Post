@@ -61,7 +61,7 @@ const NewPost = () => {
 
     const updatedPost = {
       title: 'Ovo je izmijenjen naslov prvog posta',
-      body: 'Ovo je novo tijelo prvog posta',
+      body: 'Mijenjam ovaj body po ko zna koji put',
       createdAt: Date.now(),
       author: 'Slaven Bunijevac'
     }
