@@ -94,9 +94,7 @@ const NewPost = () => {
           <DraftEditor />
         </div>
         <button type='submit' className='newPostBtn'>Save post</button>
-      </form>
-      
-      <button onClick={updatePost}>delete one</button>
+      </form>      
     </div>
   )
 }
