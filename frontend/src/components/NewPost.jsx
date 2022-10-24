@@ -57,11 +57,10 @@ const NewPost = () => {
 
   // UPDATE POST
   const updatePost = async (e) => {
-    console.log('unutar updatePost metode')
 
     const updatedPost = {
-      title: 'Ovo je izmijenjen naslov prvog posta',
-      body: 'Mijenjam ovaj body po ko zna koji put',
+      title: 'Jedan kratki title',
+      body: 'Kokolo ko',
       createdAt: Date.now(),
       author: 'Slaven Bunijevac'
     }
@@ -76,7 +75,6 @@ const NewPost = () => {
     })
 
     const postUpdateResponse = await response.json();
-    console.log(postUpdateResponse);
   }
 
   return (
