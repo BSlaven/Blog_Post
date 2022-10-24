@@ -141,6 +141,7 @@ const postsSlice = createSlice({
 
 // export const { reactionAdded } = postsSlice.actions
 
-export const allPosts = state => state.posts;
+export const allPosts = state => state.posts.posts;
+export const fetchAllPostsStatus = state => state.posts.status;
 
 export default postsSlice.reducer
