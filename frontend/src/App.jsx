@@ -11,7 +11,7 @@ function App() {
   return (
       <Router>
         <Routes>
-          <Route path="posts" element={<Layout />}>
+          <Route path="/" element={<Layout />}>
             <Route index element={<Posts />} />
             <Route path='post'>
               <Route index element={<PostPage />} />
