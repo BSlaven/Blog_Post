@@ -12,11 +12,11 @@ const backendURL = 'https://localhost:3001/posts';
 //   sortComparer: (a, b) => b.date.localeCompare(a.date)
 // })
 
-const initialState = postsAdapter.getInitialState({
+const initialState = {
   status: 'idle', //'idle' | 'loading' | 'succeeded' | 'failed'
   error: null,
   posts: []
-})
+}
 
 // FETCH ALL POSTS
 // const fetchAllPosts = async (e) => {
@@ -130,21 +130,23 @@ const postsSlice = createSlice({
   }
 })
 
-export const { 
-  selectAll: selectAllPosts,
-  selectById: selectPostById,
-  selectIds: selectPostIds
-} = postsAdapter.getSelectors(state => state.posts)
+// export const { 
+//   selectAll: selectAllPosts,
+//   selectById: selectPostById,
+//   selectIds: selectPostIds
+// } = postsAdapter.getSelectors(state => state.posts)
 
-export const getPostsStatus = (state) => state.posts.status;
-export const getPostsError = (state) => state.posts.error;
-export const getCount = (state) => state.posts.count;
+// export const getPostsStatus = (state) => state.posts.status;
+// export const getPostsError = (state) => state.posts.error;
+// export const getCount = (state) => state.posts.count;
 
-export const selectPostsByUser = createSelector(
-  [selectAllPosts, (state, userId) => userId],
-  (posts, userId) => posts.filter(post => post.userId === userId)
-)
+// export const selectPostsByUser = createSelector(
+//   [selectAllPosts, (state, userId) => userId],
+//   (posts, userId) => posts.filter(post => post.userId === userId)
+// )
 
-export const { reactionAdded } = postsSlice.actions
+// export const { reactionAdded } = postsSlice.actions
+
+export const allPosts = state => state.posts;
 
 export default postsSlice.reducer
