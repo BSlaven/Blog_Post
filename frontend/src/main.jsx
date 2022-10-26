@@ -8,7 +8,6 @@ import { fetchAllPosts } from './store/slices/postsSlice';
 import './index.css'
 
 store.dispatch(fetchAllPosts());
-console.log('main.jsx file rendered')
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
