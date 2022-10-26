@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Posts />} />
-            <Route path='post'>
+            <Route path='post/:id'>
               <Route index element={<PostPage />} />
             </Route>
             <Route path='new' element={<NewPost />} />

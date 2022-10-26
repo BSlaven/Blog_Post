@@ -143,5 +143,8 @@ const postsSlice = createSlice({
 
 export const allPosts = state => state.posts.posts;
 export const fetchAllPostsStatus = state => state.posts.status;
+export const getPostById = (id, state) =>{
+  return state.posts.posts.find(post => post.id === id)
+};
 
 export default postsSlice.reducer

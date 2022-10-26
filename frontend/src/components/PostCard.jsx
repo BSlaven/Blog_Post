@@ -7,7 +7,7 @@ const PostCard = ({ _id: id, title, body }) => {
 
   const clickCardHandler = e => {
     console.log(`Kliknuo si na post ${id}`);
-    navigate('/post')
+    navigate(`/post/${id}`);
   }
 
   return (
