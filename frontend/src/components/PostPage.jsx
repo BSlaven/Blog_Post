@@ -7,10 +7,14 @@ import { useParams } from 'react-router-dom'
 const PostPage = () => {
 
   const { id } = useParams();
-  const post = useSelector(state => getPostById(state, Number(id)));
+  
+  const post = useSelector(state => getPostById(state, id));
+  console.log('Ovo je moj post: ', post);
   
   return (
-    <div>One post page</div>
+    <div>
+      <h3>Nema naslova</h3>
+    </div>
   )
 }
 
