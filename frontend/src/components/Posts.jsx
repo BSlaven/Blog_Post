@@ -9,16 +9,13 @@ const Posts = () => {
   const posts = useSelector(allPosts);
   const status = useSelector(fetchAllPostsStatus);
 
-  console.log('Ovo su postovi: ', posts);
-
   return (
     <div className="posts-container">      
-      {status === 'loading' ? <p>Loading Spinner</p> : <p>Učitao sam</p>}
+      {status === 'loading' ? <p>Loading Spinner</p> : null}
 
       {posts && posts.map(post => (
-        <PostCard key={post._id} post={post} />
+        <PostCard key={post._id} {...post} />
       ))}
-      Ovo je komponenta za sve postove.
     </div>
   )
 }
