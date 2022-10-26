@@ -2,20 +2,20 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { allPosts, fetchAllPostsStatus } from '../store/slices/postsSlice';
 
+import PostCard from './PostCard';
+
 const Posts = () => {
 
   const posts = useSelector(allPosts);
   const status = useSelector(fetchAllPostsStatus);
-  console.log(status)
 
-  console.log('Ovo su postovi: ', posts);
-
-  console.log('ovo je Posts komponenta')
-  
   return (
-    <div>
-      {status === 'loading' ? <p>Loading Spinner</p> : <p>Učitao sam</p>}
-      Ovo je komponenta za sve postove.
+    <div className="posts-container">      
+      {status === 'loading' ? <p>Loading Spinner</p> : null}
+
+      {posts && posts.map(post => (
+        <PostCard key={post._id} {...post} />
+      ))}
     </div>
   )
 }

@@ -10,8 +10,8 @@ const NewPost = () => {
 
   const createNewPost = async (e) => {
     const myPost = {
-      title: 'Ovo je naslov prvog posta',
-      body: 'Ovo je tijelo prvog posta',
+      title: 'Naslov - Drugi post',
+      body: 'Body - Drugi post',
       createdAt: Date.now(), 
       author: 'Slaven Bunijevac'
     }
