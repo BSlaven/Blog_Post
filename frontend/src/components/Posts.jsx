@@ -10,8 +10,12 @@ const Posts = () => {
   console.log('Ovo su postovi: ', posts);
 
   return (
-    <div>
+    <div className="posts-container">      
       {status === 'loading' ? <p>Loading Spinner</p> : <p>Učitao sam</p>}
+
+      {posts && posts.map(post => (
+        <PostCard key={post._id} />
+      ))}
       Ovo je komponenta za sve postove.
     </div>
   )
