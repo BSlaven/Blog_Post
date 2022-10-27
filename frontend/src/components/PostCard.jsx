@@ -5,13 +5,16 @@ const PostCard = ({ _id: id, title, body, author, createdAt: date }) => {
 
   const navigate = useNavigate();
 
-  const clickCardHandler = e => {
+  const readMoreClickHandler = e => {
     navigate(`/posts/${id}`);
   }
 
   return (
-    <div className="card-container" onClick={clickCardHandler}>
-      <h3 className='post-title'>{title}</h3>      
+    <div className="card-container">
+      <div className="post-header">
+        <h3 className='post-title'>{title}</h3>
+        <button className="read-more-btn" onClick={readMoreClickHandler}>Read More</button>
+      </div>
       <p className="post-description">{body}</p>
       <div className="post-details">
         <p className="post-author">{author}</p>
