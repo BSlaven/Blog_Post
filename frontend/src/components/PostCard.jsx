@@ -10,7 +10,7 @@ const PostCard = ({ _id: id, title, body }) => {
   }
 
   return (
-    <div className="post-card" onClick={clickCardHandler}>
+    <div className="card-container" onClick={clickCardHandler}>
       <h3 className='post-card-title'>{title}</h3>      
       <p className="post-card-description">{body}</p>
     </div>
