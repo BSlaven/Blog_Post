@@ -24,6 +24,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   border: 1px solid blue;
+  padding-top: 2rem;
 }
 
 .header {
