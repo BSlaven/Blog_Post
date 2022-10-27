@@ -6,6 +6,7 @@
 
 :root {
   --card-accent-color: #FFAFCC;
+  --dark-accent-color: rgb(10, 0, 104);
 }
 
 body {
@@ -53,7 +54,7 @@ body {
 }
 
 .nav-link {
-  color: rgb(10, 0, 104);
+  color: var(--dark-accent-color);
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
@@ -159,18 +160,35 @@ div.DraftEditor-root {
   border-left: 2px solid var(--card-accent-color);
 }
 
+.post-header, .post-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-header {
+  margin-bottom: 0.7rem;
+}
+
+.read-more-btn {
+  border: none;
+  border-radius: 3px;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.8rem;
+  color: var(--dark-accent-color);
+  outline: 2px solid var(--card-accent-color);
+  cursor: pointer;
+}
+
+.read-more-btn:is(:hover, :focus) {
+  outline-color: var(--dark-accent-color);
+}
+
 .post-title {
   font-size: 1.3rem;
-  margin-bottom: 0.7rem;
 }
 
 .post-description {
   margin-bottom: 1rem;
-}
-
-.post-details {
-  display: flex;
-  justify-content: space-between;
 }
 
 .post-author,
