@@ -6,7 +6,7 @@ const PostCard = ({ _id: id, title, body, author, createdAt: date }) => {
   const navigate = useNavigate();
 
   const clickCardHandler = e => {
-    navigate(`/post/${id}`);
+    navigate(`/posts/${id}`);
   }
 
   return (
