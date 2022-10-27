@@ -123,7 +123,7 @@ div.DraftEditor-root {
   border-radius: 3px;
 }
 
-button {
+.newPostBtn {
   background-color: #5447e7;
   color: #fff;
   font-weight: 600;
@@ -136,7 +136,7 @@ button {
   cursor: pointer;
 }
 
-button:is(:hover, :focus) {
+.newPostBtn:is(:hover, :focus) {
   background-color: #4a3ecc;
 }
 /* new post page */
