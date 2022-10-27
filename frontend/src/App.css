@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+:root {
+  --card-accent-color: #FFAFCC;
+}
+
 body {
   background-color: rgb(247, 245, 245);
 }
@@ -135,3 +139,7 @@ button:is(:hover, :focus) {
   background-color: #4a3ecc;
 }
 /* new post page */
+
+/* POST CARD */
+
+/* POST CARD */
