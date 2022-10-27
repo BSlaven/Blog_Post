@@ -163,4 +163,8 @@ button:is(:hover, :focus) {
   font-size: 1.3rem;
   margin-bottom: 0.7rem;
 }
+
+.post-description {
+  margin-bottom: 1rem;
+}
 /* POST CARD */
