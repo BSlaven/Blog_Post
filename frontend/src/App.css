@@ -158,4 +158,9 @@ button:is(:hover, :focus) {
 .card-container:nth-child(odd) {
   border-left: 2px solid var(--card-accent-color);
 }
+
+.post-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.7rem;
+}
 /* POST CARD */
