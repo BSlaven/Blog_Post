@@ -114,11 +114,11 @@ body {
 
 div.DraftEditor-root {
   background-color: #fffef7;
-  width:100%;
-  margin:auto;
-  height:300px;
+  width: 100%;
+  margin: auto;
+  height: 300px;
   overflow-y: auto;
-  padding:20px;
+  padding: 20px;
   font-size: 1.2rem;
   font-family: 'calibri', sans-serif;
   border-radius: 3px;
