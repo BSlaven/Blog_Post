@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Editor, EditorState, convertToRaw } from 'draft-js';
-import '../../node_modules/draft-js/dist/Draft.css'
-
+import '../../node_modules/draft-js/dist/Draft.css';
 
 const DraftEditor = () => {
   
