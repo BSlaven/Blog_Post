@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Editor, EditorState } from 'draft-js';
+import { Editor, EditorState, convertToRaw } from 'draft-js';
 
 const DraftEditor = () => {
   
@@ -7,10 +7,15 @@ const DraftEditor = () => {
     return EditorState.createEmpty();
   });
 
+  const updateEditorState = editorState => {
+    setEditorState(editorState);
+    console.log(convertToRaw(editorState.getCurrentContent()))
+  }
+
 
   return (
     <div>
-      <Editor editorState={editorState} onChange={handleChange} />
+      <Editor editorState={editorState} onChange={updateEditorState} />
     </div>
   )
 }
