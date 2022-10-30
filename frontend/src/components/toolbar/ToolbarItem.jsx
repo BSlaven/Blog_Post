@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-const ToolbarItem = () => {
+const ToolbarItem = ({ isactive, children }) => {
   return (
-    <div>ToolbarItem</div>
+    <div className={`toolbar-item ${isactive ? 'active' : ''}`}>
+      {children}
+    </div>
   )
 }
 

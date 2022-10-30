@@ -1,8 +1,7 @@
 import React from 'react';
 import { RichUtils } from 'draft-js';
 import { inlineStyles } from './inlineStyles';
-
-// import { ToolbarItem, Container } from "./common";
+import ToolbarItem from './ToolbarItem';
 
 const InlineStylesComponent = ({ editorState, updateEditorState }) => {
 
@@ -21,13 +20,13 @@ const InlineStylesComponent = ({ editorState, updateEditorState }) => {
   return (
     <div className='inline-styles-container'>
       {inlineStyles.map((elem, index) => (
-        <p 
+        <ToolbarItem 
           key={elem.style} 
           onClick={e => applyStyle(e, elem.style)}
           isactive={isStyleApplied(elem.style).toString()}
         >
-          {`SB-${index}`}
-        </p>
+          {elem.icon || elem.label}
+        </ToolbarItem>
       ))}
     </div>
   )
