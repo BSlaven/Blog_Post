@@ -6,6 +6,7 @@ import ToolbarItem from './ToolbarItem';
 const InlineStylesComponent = ({ editorState, updateEditorState }) => {
 
   const applyStyle = (e, style) => {
+    console.log(style)
     e.preventDefault();
   
     updateEditorState(RichUtils.toggleInlineStyle(editorState, style));
@@ -14,16 +15,19 @@ const InlineStylesComponent = ({ editorState, updateEditorState }) => {
   const isStyleApplied = style => {
     const currentStyle = editorState.getCurrentInlineStyle();
 
+    console.log(currentStyle.has(style))
     return currentStyle.has(style)
   }
   
   return (
     <div className='inline-styles-container'>
-      {inlineStyles.map((elem, index) => (
+      {inlineStyles.map((elem) => (
         <ToolbarItem 
           key={elem.style} 
           onClick={e => applyStyle(e, elem.style)}
-          isactive={isStyleApplied(elem.style).toString()}
+          // isactive={isStyleApplied(elem.style).toString()}
+          isactive={isStyleApplied(elem.style)}
+          updateEditorState={updateEditorState}
         >
           {elem.icon || elem.label}
         </ToolbarItem>

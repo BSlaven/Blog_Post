@@ -5,7 +5,8 @@ const ToolbarItem = ({ isactive, children }) => {
   console.log(isactive)
   
   return (
-    <div className={`toolbar-item ${isactive === 'true' ? 'active' : null}`}>
+    <div
+      className={`toolbar-item ${isactive === 'true' ? 'active' : null}`}>
       {children}
     </div>
   )

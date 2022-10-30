@@ -214,7 +214,8 @@ div.DraftEditor-root {
 }
 
 .toolbar-item {
-  background-color: red;
+  cursor: pointer;
+  padding: 0 0.2rem;
 }
 
 .toolbar-item.active {
