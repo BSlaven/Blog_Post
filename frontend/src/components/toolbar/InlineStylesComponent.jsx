@@ -14,7 +14,7 @@ const InlineStylesComponent = ({ editorState, updateEditorState }) => {
   
   const isStyleApplied = style => {
     const currentStyle = editorState.getCurrentInlineStyle();
-    
+
     return currentStyle.has(style)
   }
   
@@ -24,7 +24,7 @@ const InlineStylesComponent = ({ editorState, updateEditorState }) => {
         <p 
           key={elem.style} 
           onClick={e => applyStyle(e, elem.style)}
-          isActive={isStyleApplied(elem.style)}
+          isactive={isStyleApplied(elem.style).toString()}
         >
           {`SB-${index}`}
         </p>
