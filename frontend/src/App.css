@@ -208,7 +208,6 @@ div.DraftEditor-root {
 }
 
 .inline-styles-container {
-  /* background-color: red; */
   display: flex;
   gap: 1rem;
   padding: 0.2rem 0.5rem;
