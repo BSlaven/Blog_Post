@@ -21,4 +21,20 @@ const inlineStyles = [
   }
 ];
 
-export { inlineStyles };
+export const blockTypes = [
+  { label: " “ ” ", style: "blockquote" },
+  { label: "UL", style: "unordered-list-item" },
+  { label: "OL", style: "ordered-list-item" },
+  { label: "{ }", style: 'code-block' }
+];
+
+export const blockHeadings = [
+  { label: "H1", style: "header-one" },
+  { label: "H2", style: "header-two" },
+  { label: "H3", style: "header-three" },
+  { label: "H4", style: "header-four" },
+  { label: "H5", style: "header-five" },
+  { label: "H6", style: "header-six" }
+]
+
+export { inlineStyles, blockTypes, blockHeadings };
