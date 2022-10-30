@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
+
+import InlineStylesComponent from './InlineStylesComponent';
 
 const EditorToolbar = () => {
   return (
-    <div>EditorToolbar</div>
+    <div>
+      <InlineStylesComponent />
+      {/* <BlockStylesComponent /> */}
+    </div>
   )
 }
 
