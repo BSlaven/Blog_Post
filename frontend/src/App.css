@@ -216,9 +216,15 @@ div.DraftEditor-root {
 .toolbar-item {
   cursor: pointer;
   padding: 0 0.2rem;
+  outline: 2px solid rgb(179, 179, 179);
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .toolbar-item.active {
-  background-color: blue;
+  outline-color: #333;
 }
 /* EDITOR TOOLBAR */
