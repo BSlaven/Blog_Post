@@ -1,6 +1,6 @@
 import React from 'react';
 import { RichUtils } from 'draft-js';
-import { inlineStyles } from './inlineStyles';
+import { inlineStyles } from './stylesConstants';
 
 const BlockStylesComponent = () => {
   return (
