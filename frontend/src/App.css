@@ -197,3 +197,18 @@ div.DraftEditor-root {
   color: #555;
 }
 /* POST CARD */
+
+/* EDITOR TOOLBAR */
+.toolbar-container {
+  background-color: rgb(221, 205, 205);
+  width: 100%;
+  padding: 0.3rem 0.5rem;
+}
+
+.inline-styles-container {
+  /* background-color: red; */
+  display: flex;
+  gap: 1rem;
+  padding: 0.2rem 0.5rem;
+}
+/* EDITOR TOOLBAR */

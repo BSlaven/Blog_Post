@@ -4,7 +4,7 @@ import InlineStylesComponent from './InlineStylesComponent';
 
 const EditorToolbar = ({ editorState, updateEditorState }) => {
   return (
-    <div>
+    <div className='toolbar-container'>
       <InlineStylesComponent editorState={editorState} updateEditorState={updateEditorState} />
       {/* <BlockStylesComponent /> */}
     </div>
