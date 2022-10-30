@@ -21,14 +21,14 @@ const inlineStyles = [
   }
 ];
 
-export const blockTypes = [
+const blockTypes = [
   { label: " “ ” ", style: "blockquote" },
   { label: "UL", style: "unordered-list-item" },
   { label: "OL", style: "ordered-list-item" },
   { label: "{ }", style: 'code-block' }
 ];
 
-export const blockHeadings = [
+const blockHeadings = [
   { label: "H1", style: "header-one" },
   { label: "H2", style: "header-two" },
   { label: "H3", style: "header-three" },
