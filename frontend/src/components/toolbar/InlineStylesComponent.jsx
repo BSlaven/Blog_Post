@@ -6,7 +6,7 @@ const InlineStylesComponent = () => {
   return (
     <div className='inline-styles-container'>
       {inlineStyles.map((elem, index) => (
-        <p>{`SB-${index}`}</p>
+        <p key={elem.style}>{`SB-${index}`}</p>
       ))}
     </div>
   )
