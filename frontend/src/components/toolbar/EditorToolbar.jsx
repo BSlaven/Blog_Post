@@ -2,10 +2,10 @@ import React from 'react';
 
 import InlineStylesComponent from './InlineStylesComponent';
 
-const EditorToolbar = () => {
+const EditorToolbar = ({ editorState, updateEditorState }) => {
   return (
     <div>
-      <InlineStylesComponent />
+      <InlineStylesComponent editorState={editorState} updateEditorState={updateEditorState} />
       {/* <BlockStylesComponent /> */}
     </div>
   )

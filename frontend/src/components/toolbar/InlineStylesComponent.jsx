@@ -1,12 +1,33 @@
-import React from 'react'
-
+import React from 'react';
+import { RichUtils } from 'draft-js';
 import { inlineStyles } from './inlineStyles';
 
-const InlineStylesComponent = () => {
+// import { ToolbarItem, Container } from "./common";
+
+const InlineStylesComponent = ({ editorState, updateEditorState }) => {
+
+  const applyStyle = (e, style) => {
+    e.preventDefault();
+  
+    updateEditorState(RichUtils.toggleInlineStyle(editorState, style));
+  }
+  
+  const isStyleApplied = style => {
+    const currentStyle = editorState.getCurrentInlineStyle();
+    
+    return currentStyle.has(style)
+  }
+  
   return (
     <div className='inline-styles-container'>
       {inlineStyles.map((elem, index) => (
-        <p key={elem.style}>{`SB-${index}`}</p>
+        <p 
+          key={elem.style} 
+          onClick={e => applyStyle(e, elem.style)}
+          isActive={isStyleApplied(elem.style)}
+        >
+          {`SB-${index}`}
+        </p>
       ))}
     </div>
   )

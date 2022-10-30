@@ -15,7 +15,7 @@ const DraftEditor = () => {
 
   return (
     <div>
-      <EditorToolbar />
+      <EditorToolbar editorState={editorState} updateEditorState={updateEditorState} />
       <Editor 
         editorState={editorState}
         onChange={updateEditorState}
