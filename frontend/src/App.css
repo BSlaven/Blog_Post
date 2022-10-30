@@ -203,6 +203,8 @@ div.DraftEditor-root {
   background-color: rgb(221, 205, 205);
   width: 100%;
   padding: 0.3rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .inline-styles-container {
