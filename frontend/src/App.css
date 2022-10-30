@@ -7,10 +7,11 @@
 :root {
   --card-accent-color: #FFAFCC;
   --dark-accent-color: rgb(10, 0, 104);
+  --main-bg-light: rgb(247, 245, 245);
 }
 
 body {
-  background-color: rgb(247, 245, 245);
+  background-color: var(--main-bg-light);
 }
 
 .App {
@@ -216,7 +217,7 @@ div.DraftEditor-root {
 .toolbar-item {
   cursor: pointer;
   padding: 0 0.2rem;
-  outline: 2px solid rgb(179, 179, 179);
+  outline: 2px solid var(--main-bg-light);
   width: 1.8rem;
   height: 1.8rem;
   display: flex;
