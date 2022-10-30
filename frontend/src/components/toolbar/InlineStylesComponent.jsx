@@ -1,7 +1,6 @@
 import React from 'react';
 import { RichUtils } from 'draft-js';
 import { inlineStyles } from './inlineStyles';
-import ToolbarItem from './ToolbarItem';
 
 const InlineStylesComponent = ({ editorState, updateEditorState }) => {
 
