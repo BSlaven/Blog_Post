@@ -212,4 +212,12 @@ div.DraftEditor-root {
   gap: 1rem;
   padding: 0.2rem 0.5rem;
 }
+
+.toolbar-item {
+  background-color: red;
+}
+
+.toolbar-item.active {
+  background-color: blue;
+}
 /* EDITOR TOOLBAR */
