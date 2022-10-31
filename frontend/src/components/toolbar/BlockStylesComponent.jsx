@@ -12,9 +12,12 @@ const BlockStylesComponent = ({ editorState, updateEditorState }) => {
     updateEditorState(RichUtils.toggleBlockType(editorState, style));
   }
 
-  const isStyleApplied = type => {
-    const currentType = convertToRaw(editorState.getCurrentContent());
-    console.log(convertToRaw(editorState.getCurrentContent()).blocks[0].type);
+  const isBlockApplied = (blockType, index) => {
+    // const currentType = convertToRaw(editorState.getCurrentContent());
+    const currentType = convertToRaw(editorState.getCurrentContent()).blocks[index].type;
+
+    // console.log(convertToRaw(editorState.getCurrentContent()).blocks[0].type);
+    console.log(currentType);
 
     return true
   }
