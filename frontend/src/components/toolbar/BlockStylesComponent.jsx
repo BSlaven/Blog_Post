@@ -2,19 +2,29 @@ import React from 'react';
 import { RichUtils } from 'draft-js';
 import { blockTypes, blockHeadings } from './stylesConstants';
 
-const BlockStylesComponent = () => {
+const BlockStylesComponent = ({ editorState, updateEditorState }) => {
 
   const totalBlockStyles = [ ...blockTypes, ...blockHeadings ];
-  console.log(totalBlockStyles);
 
   const applyStyle = (e, style) => {
     e.preventDefault();
   
-    updateEditorState(RichUtils.toggleBlockStyle(editorState, style));
+    updateEditorState(RichUtils.toggleBlockType(editorState, style));
   }
   
   return (
-    <div>BlockStylesComponent</div>
+    <div className='block-styles-container'>
+      {totalBlockStyles.map(elem => (
+        <div 
+          className={`toolbar-item`}
+          key={elem.style}
+          onClick={e => applyStyle(e, elem.style)}
+          // isactive={isStyleApplied(elem.style).toString()}
+        >
+          {elem.label}
+        </div>
+      ))}
+    </div>
   )
 }
 

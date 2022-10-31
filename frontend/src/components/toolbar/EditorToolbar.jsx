@@ -7,7 +7,7 @@ const EditorToolbar = ({ editorState, updateEditorState }) => {
   return (
     <div className='toolbar-container'>
       <InlineStylesComponent editorState={editorState} updateEditorState={updateEditorState} />
-      <BlockStylesComponent />
+      <BlockStylesComponent editorState={editorState} updateEditorState={updateEditorState} />
     </div>
   )
 }
