@@ -1,5 +1,5 @@
 import React from 'react';
-import { RichUtils } from 'draft-js';
+import { RichUtils, convertToRaw } from 'draft-js';
 import { blockTypes, blockHeadings } from './stylesConstants';
 
 const BlockStylesComponent = ({ editorState, updateEditorState }) => {
@@ -8,23 +8,26 @@ const BlockStylesComponent = ({ editorState, updateEditorState }) => {
 
   const applyStyle = (e, style) => {
     e.preventDefault();
-    console.log(style);
   
     updateEditorState(RichUtils.toggleBlockType(editorState, style));
   }
 
-  const isStyleApplied = type => {
-    const currentType = editorState.getType();
-    console.log(currentType);
+  const isBlockApplied = (type) => {
 
-    return currentType.has(type)
+    const selection = editorState.getSelection()
+    const currentBlockType = editorState
+		.getCurrentContent()
+		.getBlockForKey(selection.getStartKey())
+		.getType();
+
+    return currentBlockType == type;
   }
   
   return (
     <div className='block-styles-container'>
-      {totalBlockStyles.map(elem => (
+      {totalBlockStyles.map((elem, index) => (
         <div 
-          className={`toolbar-item ${isStyleApplied(elem.style) ? 'active' : ''}`}
+          className={`toolbar-item ${isBlockApplied(elem.style) ? 'active' : ''}`}
           key={elem.style}
           onClick={e => applyStyle(e, elem.style)}
         >

@@ -13,11 +13,20 @@ const DraftEditor = () => {
     console.log(convertToRaw(editorState.getCurrentContent()))
   }
 
+  const getBlockStyle = (block) => {
+    switch (block.getType()) {
+      case "blockquote":
+        return "RichEditor-blockquote";
+      default:
+        return null;
+    }
+  }
+
   return (
     <div>
       <EditorToolbar editorState={editorState} updateEditorState={updateEditorState} />
       <Editor
-        // blockStyleFn={getBlockStyle}
+        blockStyleFn={getBlockStyle}
         editorState={editorState}
         onChange={updateEditorState}
         placeholder='Explore Your Way In'
