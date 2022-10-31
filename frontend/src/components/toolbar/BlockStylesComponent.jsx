@@ -12,21 +12,22 @@ const BlockStylesComponent = ({ editorState, updateEditorState }) => {
     updateEditorState(RichUtils.toggleBlockType(editorState, style));
   }
 
-  const isBlockApplied = (blockType, index) => {
-    // const currentType = convertToRaw(editorState.getCurrentContent());
-    const currentType = convertToRaw(editorState.getCurrentContent()).blocks[index].type;
+  const isBlockApplied = (type) => {
 
-    // console.log(convertToRaw(editorState.getCurrentContent()).blocks[0].type);
-    console.log(currentType);
+    const selection = editorState.getSelection()
+    const currentBlockType = editorState
+		.getCurrentContent()
+		.getBlockForKey(selection.getStartKey())
+		.getType();
 
-    return true
+    return currentBlockType == type;
   }
   
   return (
     <div className='block-styles-container'>
-      {totalBlockStyles.map(elem => (
+      {totalBlockStyles.map((elem, index) => (
         <div 
-          className={`toolbar-item ${isStyleApplied(elem.style) ? 'active' : ''}`}
+          className={`toolbar-item ${isBlockApplied(elem.style) ? 'active' : ''}`}
           key={elem.style}
           onClick={e => applyStyle(e, elem.style)}
         >
