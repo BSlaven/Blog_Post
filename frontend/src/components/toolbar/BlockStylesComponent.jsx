@@ -12,12 +12,19 @@ const BlockStylesComponent = ({ editorState, updateEditorState }) => {
   
     updateEditorState(RichUtils.toggleBlockType(editorState, style));
   }
+
+  const isStyleApplied = type => {
+    const currentType = editorState.getType();
+    console.log(currentType);
+
+    return currentType.has(type)
+  }
   
   return (
     <div className='block-styles-container'>
       {totalBlockStyles.map(elem => (
         <div 
-          className={`toolbar-item`}
+          className={`toolbar-item ${isStyleApplied(elem.style) ? 'active' : ''}`}
           key={elem.style}
           onClick={e => applyStyle(e, elem.style)}
         >
