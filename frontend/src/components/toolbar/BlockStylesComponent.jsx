@@ -1,5 +1,5 @@
 import React from 'react';
-import { RichUtils } from 'draft-js';
+import { RichUtils, convertToRaw } from 'draft-js';
 import { blockTypes, blockHeadings } from './stylesConstants';
 
 const BlockStylesComponent = ({ editorState, updateEditorState }) => {
@@ -8,16 +8,15 @@ const BlockStylesComponent = ({ editorState, updateEditorState }) => {
 
   const applyStyle = (e, style) => {
     e.preventDefault();
-    console.log(style);
   
     updateEditorState(RichUtils.toggleBlockType(editorState, style));
   }
 
   const isStyleApplied = type => {
-    const currentType = editorState.getType();
-    console.log(currentType);
+    // const currentType = editorState.getType();
+    console.log(convertToRaw(editorState.getCurrentContent()));
 
-    return currentType.has(type)
+    return true
   }
   
   return (
