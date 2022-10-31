@@ -4,6 +4,9 @@ import { blockTypes, blockHeadings } from './stylesConstants';
 
 const BlockStylesComponent = () => {
 
+  const totalBlockStyles = [ ...blockTypes, ...blockHeadings ];
+  console.log(totalBlockStyles);
+
   const applyStyle = (e, style) => {
     e.preventDefault();
   
