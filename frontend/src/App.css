@@ -208,7 +208,8 @@ div.DraftEditor-root {
   justify-content: space-between;
 }
 
-.inline-styles-container {
+.inline-styles-container,
+.block-styles-container {
   display: flex;
   gap: 1rem;
   padding: 0.2rem 0.5rem;
