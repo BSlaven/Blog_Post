@@ -7,7 +7,7 @@ const BlockStylesComponent = () => {
   const applyStyle = (e, style) => {
     e.preventDefault();
   
-    updateEditorState(RichUtils.toggleInlineStyle(editorState, style));
+    updateEditorState(RichUtils.toggleBlockStyle(editorState, style));
   }
   
   return (
