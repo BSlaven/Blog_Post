@@ -13,8 +13,8 @@ const BlockStylesComponent = ({ editorState, updateEditorState }) => {
   }
 
   const isStyleApplied = type => {
-    // const currentType = editorState.getType();
-    console.log(convertToRaw(editorState.getCurrentContent()));
+    const currentType = convertToRaw(editorState.getCurrentContent());
+    console.log(convertToRaw(editorState.getCurrentContent()).blocks[0].type);
 
     return true
   }
