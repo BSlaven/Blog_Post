@@ -16,7 +16,7 @@ const DraftEditor = () => {
   return (
     <div>
       <EditorToolbar editorState={editorState} updateEditorState={updateEditorState} />
-      <Editor 
+      <Editor
         editorState={editorState}
         onChange={updateEditorState}
         placeholder='Explore Your Way In'
