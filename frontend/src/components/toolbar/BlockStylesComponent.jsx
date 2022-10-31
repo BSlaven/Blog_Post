@@ -8,6 +8,7 @@ const BlockStylesComponent = ({ editorState, updateEditorState }) => {
 
   const applyStyle = (e, style) => {
     e.preventDefault();
+    console.log(style);
   
     updateEditorState(RichUtils.toggleBlockType(editorState, style));
   }
@@ -19,7 +20,6 @@ const BlockStylesComponent = ({ editorState, updateEditorState }) => {
           className={`toolbar-item`}
           key={elem.style}
           onClick={e => applyStyle(e, elem.style)}
-          // isactive={isStyleApplied(elem.style).toString()}
         >
           {elem.label}
         </div>
