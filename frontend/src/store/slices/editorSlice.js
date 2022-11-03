@@ -5,7 +5,7 @@ import {
 } from "@reduxjs/toolkit";
 
 const initialState = {
-  currentArticle: {}
+  articleBlocks: []
 }
 
 const editorSlice = createSlice({
@@ -13,11 +13,10 @@ const editorSlice = createSlice({
   initialState,
   reducers: {
 		articleAdded(state, action) {
-			const { postId, reaction } = action.payload
-			const existingPost = state.entities[postId]
-			if (existingPost) {
-				existingPost.reactions[reaction]++
-			}
+      const { blocks } = action.payload;
+      if(blocks) {
+        state.articleBlocks = blocks;
+      }
 		}
   }
 })
