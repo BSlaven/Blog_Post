@@ -9,14 +9,16 @@ const editorSlice = createSlice({
   initialState,
   reducers: {
 		addCurrentArticle(state, action) {
-      const { blocks } = action.payload;
-      if(blocks) {
-        state.articleBlocks = blocks;
+      const { article } = action.payload.currentEditorState;
+      if(article) {
+        state.article = article;
       }
 		}
   }
 })
 
 export const getCurrentArticle = state => state.editor.articleBlocks;
+
+export const { addCurrentArticle } = editorSlice.actions;
 
 export default editorSlice.reducer;
