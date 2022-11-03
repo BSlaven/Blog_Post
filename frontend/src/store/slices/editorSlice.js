@@ -19,4 +19,4 @@ const editorSlice = createSlice({
 
 export const getCurrentArticle = state => state.editor.articleBlocks;
 
-export default editorSlice.reducer
+export default editorSlice.reducer;
