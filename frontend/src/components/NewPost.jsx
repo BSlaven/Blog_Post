@@ -1,5 +1,6 @@
 import React from 'react';
 import DraftEditor from './DraftEditor';
+import ArticlePreview from './ArticlePreview';
 
 const NewPost = () => {
 
@@ -88,7 +89,8 @@ const NewPost = () => {
           <DraftEditor />
         </div>
         <button type='submit' className='newPostBtn'>Save post</button>
-      </form>      
+      </form> 
+      <ArticlePreview />
     </div>
   )
 }
