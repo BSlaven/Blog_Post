@@ -1,12 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getCurrentArticle } from '../store/slices/editorSlice';
-import { convertFromRaw } from 'draft-js';
 
 const ArticlePreview = () => {
 
-  const article = useSelector(state => getCurrentArticle(state));
-  console.log(article?.blocks[0]);
+  const { blocks } = useSelector(state => getCurrentArticle(state));
+  console.log(blocks);
   
   return (
     <pre>
