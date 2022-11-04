@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  article: {}
+  article: null
 }
 
 const editorSlice = createSlice({
@@ -10,6 +10,7 @@ const editorSlice = createSlice({
   reducers: {
 		addCurrentArticle(state, action) {
       const { currentEditorState } = action.payload;
+      console.log(currentEditorState)
       if(currentEditorState) {
         state.article = currentEditorState;
       }

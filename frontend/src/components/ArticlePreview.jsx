@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getCurrentArticle } from '../store/slices/editorSlice';
-import { ContentBlock } from 'draft-js';
+import { convertFromRaw } from 'draft-js';
 
 const ArticlePreview = () => {
 
@@ -9,7 +9,9 @@ const ArticlePreview = () => {
   console.log(article);
   
   return (
-    <div></div>
+    <pre>
+      Slaven
+    </pre>
   )
 }
 
