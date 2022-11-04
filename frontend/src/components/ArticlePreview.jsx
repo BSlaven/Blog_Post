@@ -5,16 +5,16 @@ import { getCurrentArticle } from '../store/slices/editorSlice';
 const ArticlePreview = () => {
 
   const { blocks } = useSelector(state => getCurrentArticle(state));
-  console.log(blocks)
 
   const content = (
     blocks && blocks.map(block => (
-
-      <p key={block.key}>{block.type}</p>
+      <div key={block.key}>
+        {block.type}
+      </div>
     ))
   )
 
-  
+
 
   return (
     <div>{content}</div>
