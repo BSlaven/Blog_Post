@@ -4,11 +4,11 @@ import { getCurrentArticle } from '../store/slices/editorSlice';
 
 const ArticlePreview = () => {
 
-  const article = useSelector(getCurrentArticle);
-  // console.log(`Ovo su blokovi trenutnog članka: ${article}`)
+  const article = useSelector(state => getCurrentArticle(state));
+  console.log(article)
   
   return (
-    <div> Slaven</div>
+    <div>slaven</div>
   )
 }
 
