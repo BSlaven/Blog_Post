@@ -16,7 +16,6 @@ const DraftEditor = () => {
   const updateEditorState = editorState => {
     setEditorState(editorState);
     dispatch(addCurrentArticle({ currentEditorState: convertToRaw(editorState.getCurrentContent()) }));
-    console.log(convertToRaw(editorState.getCurrentContent()))
   }
 
   const getBlockStyle = (block) => {
