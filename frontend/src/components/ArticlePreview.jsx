@@ -6,7 +6,7 @@ import { convertFromRaw } from 'draft-js';
 const ArticlePreview = () => {
 
   const article = useSelector(state => getCurrentArticle(state));
-  console.log(article);
+  console.log(article?.blocks[0]);
   
   return (
     <pre>
