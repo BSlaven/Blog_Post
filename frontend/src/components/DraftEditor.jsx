@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Editor, EditorState, convertToRaw } from 'draft-js';
 import '../../node_modules/draft-js/dist/Draft.css';
 import { useDispatch } from 'react-redux';
-import { stateToHTML } from 'draft-js-export-html';
 
 import EditorToolbar from './toolbar/EditorToolbar';
 
