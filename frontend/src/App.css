@@ -150,6 +150,7 @@ div.DraftEditor-root {
   border-radius: 4px;
   outline: 2px solid transparent;
   cursor: pointer;
+  margin-inline: 1.5rem;
 }
 
 .show-preview-btn:is(:hover, :focus) {
