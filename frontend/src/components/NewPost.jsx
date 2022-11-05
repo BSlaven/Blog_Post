@@ -92,7 +92,13 @@ const NewPost = () => {
         </div>
         <div className="form-control">
           <label htmlFor="post-description">Description</label>
-          <input type="text" name="post-description" id="post-description" />
+          <input 
+            type="text"
+            name="post-description"
+            id="post-description"
+            value={description || ''}
+            onChange={handleInputChange}
+          />
         </div>
         <div className="form-control">
           <label htmlFor="post-content">Content</label>
