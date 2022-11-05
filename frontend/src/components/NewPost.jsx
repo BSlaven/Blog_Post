@@ -16,7 +16,6 @@ const NewPost = () => {
     if(e.target.id === 'description') {
       setDescription(e.target.value)
     }
-    console.log(`Ovo su title i description: ${title}, ${description}`);
   }
 
   const formSubmitHandler = (e) => {
