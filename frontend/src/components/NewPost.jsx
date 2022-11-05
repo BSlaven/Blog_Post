@@ -92,7 +92,11 @@ const NewPost = () => {
         </div>
         <button type='submit' className='newPostBtn'>Save post</button>
       </form> 
-      <button className="show-preview-btn">Show preview</button>
+      <button 
+        className="show-preview-btn"
+        onClick={() => setShowPreview(prev => !prev)}>
+          Show preview
+      </button>
       {showPreview && <ArticlePreview />} 
     </div>
   )
