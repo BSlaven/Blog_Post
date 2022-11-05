@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DraftEditor from './DraftEditor';
 import ArticlePreview from './ArticlePreview';
 
 const NewPost = () => {
+
+  const [ showPreview, setShowPreview ] = useState(false);
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
@@ -90,7 +92,12 @@ const NewPost = () => {
         </div>
         <button type='submit' className='newPostBtn'>Save post</button>
       </form> 
-      <ArticlePreview />
+      <button 
+        className="show-preview-btn"
+        onClick={() => setShowPreview(prev => !prev)}>
+          Show preview
+      </button>
+      {showPreview && <ArticlePreview />} 
     </div>
   )
 }
