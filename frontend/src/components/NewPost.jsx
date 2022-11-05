@@ -25,8 +25,8 @@ const NewPost = () => {
 
   const createNewPost = async (e) => {
     const myPost = {
-      title: 'Naslov - Drugi post',
-      body: 'Body - Drugi post',
+      title,
+      description,
       createdAt: Date.now(), 
       author: 'Slaven Bunijevac'
     }
@@ -40,7 +40,7 @@ const NewPost = () => {
       body: JSON.stringify(myPost)
     })
 
-    // const response = await newlyCreatedPost.json();
+    const response = await newlyCreatedPost.json();
     if(newlyCreatedPost.ok) {
       console.log('uspješno si kreirao novi post')
     } else {
