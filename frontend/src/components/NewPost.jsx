@@ -32,12 +32,10 @@ const NewPost = () => {
     const myPost = {
       title,
       description,
-      body: blocks,
+      body: JSON.stringify(blocks),
       createdAt: Date.now(), 
       author: 'Slaven Bunijevac'
     }
-
-    // console.log(myPost);
 
     const newlyCreatedPost = await fetch('http://localhost:3001/posts/newPost', {
       method: 'POST',
