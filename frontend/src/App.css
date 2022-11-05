@@ -84,6 +84,7 @@ body {
 .form {
   width: 100%;
   padding: 0 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-control {
@@ -140,6 +141,11 @@ div.DraftEditor-root {
 
 .newPostBtn:is(:hover, :focus) {
   background-color: #4a3ecc;
+}
+
+.show-preview-btn {
+  background-color: red;
+  padding
 }
 /* new post page */
 
