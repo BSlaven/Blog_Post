@@ -9,9 +9,14 @@ const NewPost = () => {
   const [ description, setDescription ] = useState('');
 
   const handleInputChange = e => {
-
+    if(e.target.id === 'title') {
+      setTitle(e.target.value);
+    }
+    
+    if(e.target.id === 'description') {
+      setDescription(e.target.value)
+    }
     console.log(`Ovo su title i description: ${title}, ${description}`);
-    console.log(`Ovo su id za title i description: ${e.target.id}`);
   }
 
   const formSubmitHandler = (e) => {
