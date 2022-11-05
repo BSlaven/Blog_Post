@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import DraftEditor from './DraftEditor';
 import ArticlePreview from './ArticlePreview';
+import { getCurrentArticle } from '../store/slices/editorSlice';
 
 const NewPost = () => {
 
   const [ showPreview, setShowPreview ] = useState(false);
   const [ title, setTitle ] = useState('');
   const [ description, setDescription ] = useState('');
+
+  const { blocks } = useSelector(state => getCurrentArticle(state));  
 
   const handleInputChange = e => {
     if(e.target.id === 'title') {
@@ -27,9 +32,12 @@ const NewPost = () => {
     const myPost = {
       title,
       description,
+      body: blocks,
       createdAt: Date.now(), 
       author: 'Slaven Bunijevac'
     }
+
+    // console.log(myPost);
 
     const newlyCreatedPost = await fetch('http://localhost:3001/posts/newPost', {
       method: 'POST',
