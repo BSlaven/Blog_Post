@@ -90,6 +90,7 @@ const NewPost = () => {
         </div>
         <button type='submit' className='newPostBtn'>Save post</button>
       </form> 
+      <button className="show-preview-btn">Show preview</button>
       <ArticlePreview />
     </div>
   )
