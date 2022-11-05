@@ -5,6 +5,8 @@ import ArticlePreview from './ArticlePreview';
 const NewPost = () => {
 
   const [ showPreview, setShowPreview ] = useState(false);
+  const [ title, setTitle ] = useState('');
+  const [ description, setDescription ] = useState('');
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
@@ -80,7 +82,13 @@ const NewPost = () => {
       <form className="form" onSubmit={formSubmitHandler}>
         <div className="form-control">
           <label htmlFor="post-title">Title</label>
-          <input type="text" name="post-title" id="post-title" />
+          <input 
+            type="text"
+            name="post-title"
+            id="post-title"
+            value={title || ''}
+            onChange={handleInputChange}
+          />
         </div>
         <div className="form-control">
           <label htmlFor="post-description">Description</label>
