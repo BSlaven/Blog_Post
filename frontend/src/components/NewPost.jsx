@@ -1,10 +1,27 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import DraftEditor from './DraftEditor';
 import ArticlePreview from './ArticlePreview';
+import { getCurrentArticle } from '../store/slices/editorSlice';
 
 const NewPost = () => {
 
   const [ showPreview, setShowPreview ] = useState(false);
+  const [ title, setTitle ] = useState('');
+  const [ description, setDescription ] = useState('');
+
+  const { blocks } = useSelector(state => getCurrentArticle(state));  
+
+  const handleInputChange = e => {
+    if(e.target.id === 'title') {
+      setTitle(e.target.value);
+    }
+    
+    if(e.target.id === 'description') {
+      setDescription(e.target.value)
+    }
+  }
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
@@ -13,8 +30,9 @@ const NewPost = () => {
 
   const createNewPost = async (e) => {
     const myPost = {
-      title: 'Naslov - Drugi post',
-      body: 'Body - Drugi post',
+      title,
+      description,
+      body: JSON.stringify(blocks),
       createdAt: Date.now(), 
       author: 'Slaven Bunijevac'
     }
@@ -28,7 +46,7 @@ const NewPost = () => {
       body: JSON.stringify(myPost)
     })
 
-    // const response = await newlyCreatedPost.json();
+    const response = await newlyCreatedPost.json();
     if(newlyCreatedPost.ok) {
       console.log('uspješno si kreirao novi post')
     } else {
@@ -79,12 +97,24 @@ const NewPost = () => {
       <h3 className='form-title'>Create new post</h3>
       <form className="form" onSubmit={formSubmitHandler}>
         <div className="form-control">
-          <label htmlFor="post-title">Title</label>
-          <input type="text" name="post-title" id="post-title" />
+          <label htmlFor="title">Title</label>
+          <input 
+            type="text"
+            name="post-title"
+            id="title"
+            value={title || ''}
+            onChange={handleInputChange}
+          />
         </div>
         <div className="form-control">
-          <label htmlFor="post-description">Description</label>
-          <input type="text" name="post-description" id="post-description" />
+          <label htmlFor="description">Description</label>
+          <input 
+            type="text"
+            name="post-description"
+            id="description"
+            value={description || ''}
+            onChange={handleInputChange}
+          />
         </div>
         <div className="form-control">
           <label htmlFor="post-content">Content</label>
