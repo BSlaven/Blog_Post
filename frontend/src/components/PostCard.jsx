@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const PostCard = ({ _id: id, title, body, author, createdAt: date }) => {
+const PostCard = ({ _id: id, title, description, author, createdAt: date }) => {
 
   const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ const PostCard = ({ _id: id, title, body, author, createdAt: date }) => {
         <h3 className='post-title'>{title}</h3>
         <button className="read-more-btn" onClick={readMoreClickHandler}>Read More</button>
       </div>
-      <p className="post-description">{body}</p>
+      <p className="post-description">{description}</p>
       <div className="post-details">
         <p className="post-author">{author}</p>
         <span className="post-date">{date}</span>
