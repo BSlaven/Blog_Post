@@ -8,6 +8,12 @@ const NewPost = () => {
   const [ title, setTitle ] = useState('');
   const [ description, setDescription ] = useState('');
 
+  const handleInputChange = e => {
+
+    console.log(`Ovo su title i description: ${title}, ${description}`);
+    console.log(`Ovo su id za title i description: ${e.target.id}`);
+  }
+
   const formSubmitHandler = (e) => {
     e.preventDefault();
     createNewPost();
@@ -81,21 +87,21 @@ const NewPost = () => {
       <h3 className='form-title'>Create new post</h3>
       <form className="form" onSubmit={formSubmitHandler}>
         <div className="form-control">
-          <label htmlFor="post-title">Title</label>
+          <label htmlFor="title">Title</label>
           <input 
             type="text"
             name="post-title"
-            id="post-title"
+            id="title"
             value={title || ''}
             onChange={handleInputChange}
           />
         </div>
         <div className="form-control">
-          <label htmlFor="post-description">Description</label>
+          <label htmlFor="description">Description</label>
           <input 
             type="text"
             name="post-description"
-            id="post-description"
+            id="description"
             value={description || ''}
             onChange={handleInputChange}
           />
