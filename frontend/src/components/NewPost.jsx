@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import DraftEditor from './DraftEditor';
 import ArticlePreview from './ArticlePreview';
 import { getCurrentArticle } from '../store/slices/editorSlice';
+import { createNewArticle } from '../store/slices/postsSlice';
 
 const NewPost = () => {
 
   const [ showPreview, setShowPreview ] = useState(false);
   const [ title, setTitle ] = useState('');
   const [ description, setDescription ] = useState('');
+
+  const dispatch = useDispatch();
 
   const { blocks } = useSelector(state => getCurrentArticle(state));  
 
@@ -33,25 +36,11 @@ const NewPost = () => {
       title,
       description,
       body: JSON.stringify(blocks),
-      createdAt: Date.now(), 
+      createdAt: Date.now(),
       author: 'Slaven Bunijevac'
     }
 
-    const newlyCreatedPost = await fetch('http://localhost:3001/posts/newPost', {
-      method: 'POST',
-      headers: {
-        'Accept':'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(myPost)
-    })
-
-    const response = await newlyCreatedPost.json();
-    if(newlyCreatedPost.ok) {
-      console.log('uspješno si kreirao novi post')
-    } else {
-      console.log('napravio si grešku glupane')
-    }
+    dispatch(createNewArticle(myPost))
   }
 
   // FETCH ONE POST BY ID
@@ -62,7 +51,7 @@ const NewPost = () => {
 
   // DELETE POST
   const deletePost = async (e) => {
-    const response = await fetch(`http://localhost:3001/posts/6355ba2e404ef09e0c5c163f`, {
+    const response = await fetch(`http://localhost:3001/posts/635900fe168de3f99640dcc7`, {
       method: 'DELETE'
     })
 
@@ -124,7 +113,8 @@ const NewPost = () => {
       </form> 
       <button 
         className="show-preview-btn"
-        onClick={() => setShowPreview(prev => !prev)}>
+        // onClick={() => setShowPreview(prev => !prev)}>
+        onClick={() => deletePost()}>
           Show preview
       </button>
       {showPreview && <ArticlePreview />} 

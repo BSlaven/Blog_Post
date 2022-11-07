@@ -19,15 +19,32 @@ const initialState = {
 }
 
 export const fetchAllPosts = createAsyncThunk('/posts/fetchAllPosts', async () => {
+  
   const response = await fetch(backendURL);
   const posts = response.json();
 
   return posts;
 })
 
-export const addNewPost = createAsyncThunk('posts/addNewPost', async (initialPost) => {
-  const response = await axios.post(POSTS_URL, initialPost)
-  return response.data
+export const createNewArticle = createAsyncThunk('posts/addNewPost', async (newArticle) => {
+
+  const newlyCreatedPost = await fetch(`${backendURL}/newPost`, {
+    method: 'POST',
+    headers: {
+      'Accept':'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newArticle)
+  })
+
+  const response = await newlyCreatedPost.json();
+  // if(newlyCreatedPost.ok) {
+  //   console.log('uspješno si kreirao novi post')
+  // } else {
+  //   console.log('napravio si grešku glupane')
+  // }
+
+  return response.article
 })
 
 export const updatePost = createAsyncThunk('posts/updatePost', async (initialPost) => {
@@ -78,30 +95,8 @@ const postsSlice = createSlice({
               state.status = 'failed'
               state.error = action.error.message
           })
-          .addCase(addNewPost.fulfilled, (state, action) => {
-              // Fix for API post IDs:
-              // Creating sortedPosts & assigning the id 
-              // would be not be needed if the fake API 
-              // returned accurate new post IDs
-              const sortedPosts = state.posts.sort((a, b) => {
-                  if (a.id > b.id) return 1
-                  if (a.id < b.id) return -1
-                  return 0
-              })
-              action.payload.id = sortedPosts[sortedPosts.length - 1].id + 1;
-              // End fix for fake API post IDs 
-
-              action.payload.userId = Number(action.payload.userId)
-              action.payload.date = new Date().toISOString();
-              action.payload.reactions = {
-                  thumbsUp: 0,
-                  wow: 0,
-                  heart: 0,
-                  rocket: 0,
-                  coffee: 0
-              }
-              postsAdapter.addOne(state, action.payload)
-              state.posts.push(action.payload)
+          .addCase(createNewArticle.fulfilled, (state, action) => {
+            state.posts.push(action.payload)
           })
           .addCase(updatePost.fulfilled, (state, action) => {
               if (!action.payload?.id) {
