@@ -82,40 +82,40 @@ const postsSlice = createSlice({
 		}
   },
   extraReducers(builder) {
-      builder
-          .addCase(fetchAllPosts.pending, (state, action) => {
-              state.status = 'loading'
-          })
-          .addCase(fetchAllPosts.fulfilled, (state, action) => {
-              state.status = 'succeeded'
+    builder
+      .addCase(fetchAllPosts.pending, (state, action) => {
+        state.status = 'loading'
+      })
+      .addCase(fetchAllPosts.fulfilled, (state, action) => {
+        state.status = 'succeeded'
 
-              state.posts = action.payload;
-          })
-          .addCase(fetchAllPosts.rejected, (state, action) => {
-              state.status = 'failed'
-              state.error = action.error.message
-          })
-          .addCase(createNewArticle.fulfilled, (state, action) => {
-            state.posts.push(action.payload)
-          })
-          .addCase(updatePost.fulfilled, (state, action) => {
-              if (!action.payload?.id) {
-                  console.log('Update could not complete')
-                  console.log(action.payload)
-                  return;
-              }
-              action.payload.date = new Date().toISOString();
-              postsAdapter.upsertOne(state, action.payload)
-          })
-          .addCase(deletePost.fulfilled, (state, action) => {
-              if (!action.payload?.id) {
-                  console.log('Delete could not complete')
-                  console.log(action.payload)
-                  return;
-              }
-              const { id } = action.payload;
-              postsAdapter.removeOne(state, id)
-          })
+        state.posts = action.payload;
+      })
+      .addCase(fetchAllPosts.rejected, (state, action) => {
+        state.status = 'failed'
+        state.error = action.error.message
+      })
+      .addCase(createNewArticle.fulfilled, (state, action) => {
+        state.posts.push(action.payload)
+      })
+      .addCase(updatePost.fulfilled, (state, action) => {
+        if (!action.payload?.id) {
+          console.log('Update could not complete')
+          console.log(action.payload)
+          return;
+        }
+        action.payload.date = new Date().toISOString();
+        postsAdapter.upsertOne(state, action.payload)
+      })
+      .addCase(deletePost.fulfilled, (state, action) => {
+        if (!action.payload?.id) {
+          console.log('Delete could not complete')
+          console.log(action.payload)
+          return;
+        }
+        const { id } = action.payload;
+        postsAdapter.removeOne(state, id)
+      })
   }
 })
 
