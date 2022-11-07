@@ -25,7 +25,7 @@ export const fetchAllPosts = createAsyncThunk('/posts/fetchAllPosts', async () =
   return posts;
 })
 
-export const addNewPost = createAsyncThunk('posts/addNewPost', async (initialPost) => {
+export const createNewArticle = createAsyncThunk('posts/addNewPost', async (initialPost) => {
   const response = await axios.post(POSTS_URL, initialPost)
   return response.data
 })
