@@ -41,22 +41,6 @@ const NewPost = () => {
     }
 
     dispatch(createNewArticle(myPost))
-
-    // const newlyCreatedPost = await fetch('http://localhost:3001/posts/newPost', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Accept':'application/json',
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(myPost)
-    // })
-
-    // const response = await newlyCreatedPost.json();
-    // if(newlyCreatedPost.ok) {
-    //   console.log('uspješno si kreirao novi post')
-    // } else {
-    //   console.log('napravio si grešku glupane')
-    // }
   }
 
   // FETCH ONE POST BY ID
