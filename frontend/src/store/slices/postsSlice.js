@@ -38,15 +38,15 @@ export const createNewArticle = createAsyncThunk('posts/addNewPost', async (newA
   })
 
   const response = await newlyCreatedPost.json();
-  if(newlyCreatedPost.ok) {
-    console.log('uspješno si kreirao novi post')
-  } else {
-    console.log('napravio si grešku glupane')
-  }
+  // if(newlyCreatedPost.ok) {
+  //   console.log('uspješno si kreirao novi post')
+  // } else {
+  //   console.log('napravio si grešku glupane')
+  // }
+
+  console.log(response);
   
-  
-  // const response = await axios.post(POSTS_URL, newArticle)
-  return response.data
+  return response
 })
 
 export const updatePost = createAsyncThunk('posts/updatePost', async (initialPost) => {
