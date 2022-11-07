@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { format } from 'date-fns';
 
 const PostCard = ({ _id: id, title, description, author, createdAt: date }) => {
 
