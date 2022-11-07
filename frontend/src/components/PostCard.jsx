@@ -1,7 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { format } from 'date-fns';
 
 const PostCard = ({ _id: id, title, description, author, createdAt: date }) => {
+
+  const formattedDate = format(new Date(date), 'PPP');
 
   const navigate = useNavigate();
 
@@ -17,8 +20,8 @@ const PostCard = ({ _id: id, title, description, author, createdAt: date }) => {
       </div>
       <p className="post-description">{description}</p>
       <div className="post-details">
-        <p className="post-author">{author}</p>
-        <span className="post-date">{date}</span>
+        <p className="post-author">By {author}</p>
+        <span className="post-date">{formattedDate}</span>
       </div>
     </div>
   )
