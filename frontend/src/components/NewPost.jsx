@@ -67,7 +67,7 @@ const NewPost = () => {
 
   // DELETE POST
   const deletePost = async (e) => {
-    const response = await fetch(`http://localhost:3001/posts/6355ba2e404ef09e0c5c163f`, {
+    const response = await fetch(`http://localhost:3001/posts/635900fe168de3f99640dcc7`, {
       method: 'DELETE'
     })
 
@@ -129,7 +129,8 @@ const NewPost = () => {
       </form> 
       <button 
         className="show-preview-btn"
-        onClick={() => setShowPreview(prev => !prev)}>
+        // onClick={() => setShowPreview(prev => !prev)}>
+        onClick={() => deletePost()}>
           Show preview
       </button>
       {showPreview && <ArticlePreview />} 

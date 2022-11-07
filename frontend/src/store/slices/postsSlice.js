@@ -44,9 +44,7 @@ export const createNewArticle = createAsyncThunk('posts/addNewPost', async (newA
   //   console.log('napravio si grešku glupane')
   // }
 
-  console.log(response);
-  
-  return response
+  return response.article
 })
 
 export const updatePost = createAsyncThunk('posts/updatePost', async (initialPost) => {
