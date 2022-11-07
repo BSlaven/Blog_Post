@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import DraftEditor from './DraftEditor';
 import ArticlePreview from './ArticlePreview';
-import { getCurrentArticle, createNewPost } from '../store/slices/editorSlice';
+import { getCurrentArticle } from '../store/slices/editorSlice';
+import { createNewArticle } from '../store/slices/postsSlice';
 
 const NewPost = () => {
 
@@ -38,6 +39,8 @@ const NewPost = () => {
       createdAt: Date.now(), 
       author: 'Slaven Bunijevac'
     }
+
+    // dispatch(createNewArticle(myPost))
 
     const newlyCreatedPost = await fetch('http://localhost:3001/posts/newPost', {
       method: 'POST',
