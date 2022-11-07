@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import DraftEditor from './DraftEditor';
 import ArticlePreview from './ArticlePreview';
-import { getCurrentArticle } from '../store/slices/editorSlice';
+import { getCurrentArticle, createNewPost } from '../store/slices/editorSlice';
 
 const NewPost = () => {
 
   const [ showPreview, setShowPreview ] = useState(false);
   const [ title, setTitle ] = useState('');
   const [ description, setDescription ] = useState('');
+
+  const dispatch = useDispatch();
 
   const { blocks } = useSelector(state => getCurrentArticle(state));  
 
