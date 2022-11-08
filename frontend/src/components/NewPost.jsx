@@ -113,8 +113,7 @@ const NewPost = () => {
       </form> 
       <button 
         className="show-preview-btn"
-        // onClick={() => setShowPreview(prev => !prev)}>
-        onClick={() => deletePost()}>
+        onClick={() => setShowPreview(prev => !prev)}>
           Show preview
       </button>
       {showPreview && <ArticlePreview />} 
