@@ -49,16 +49,6 @@ const NewPost = () => {
     const onePost = await response.json();
   }
 
-  // DELETE POST
-  // const deletePost = async (e) => {
-  //   const response = await fetch(`http://localhost:3001/posts/635900fe168de3f99640dcc7`, {
-  //     method: 'DELETE'
-  //   })
-
-  //   const deletedPost = await response.json();
-  //   console.log(deletedPost)
-  // }
-
   // UPDATE POST
   const updatePost = async (e) => {
 
