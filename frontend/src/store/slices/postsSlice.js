@@ -64,8 +64,8 @@ export const deleteArticle = createAsyncThunk('posts/deletePost', async (id) => 
     const response = await fetch(`${backendURL}/${id}`, {
       method: 'DELETE'
     })
-    if (response?.status === 200) return initialPost;
-      return `${response?.status}: ${response?.statusText}`;
+    if (response?.status === 200) return id;
+      // return `${response?.status}: ${response?.statusText}`;
   } catch (err) {
       return err.message;
   }
@@ -109,14 +109,15 @@ const postsSlice = createSlice({
         action.payload.date = new Date().toISOString();
         postsAdapter.upsertOne(state, action.payload)
       })
-      .addCase(deletePost.fulfilled, (state, action) => {
+      .addCase(deleteArticle.fulfilled, (state, action) => {
         if (!action.payload?.id) {
           console.log('Delete could not complete')
           console.log(action.payload)
           return;
         }
+
         const { id } = action.payload;
-        postsAdapter.removeOne(state, id)
+        state.posts.filter(post => post._id !== id);
       })
   }
 })

@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { format } from 'date-fns';
 
+import { deleteArticle } from '../store/slices/postsSlice';
+
 const PostCard = ({ _id: id, title, description, author, createdAt: date }) => {
 
   const formattedDate = format(new Date(date), 'PPP');
@@ -15,7 +17,7 @@ const PostCard = ({ _id: id, title, description, author, createdAt: date }) => {
   }
 
   const deletePostHandler = id => {
-    dispatch()
+    dispatch(deleteArticle(id));
   }
 
   return (
