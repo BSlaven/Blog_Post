@@ -59,13 +59,13 @@ export const updatePost = createAsyncThunk('posts/updatePost', async (initialPos
 })
 
 export const deleteArticle = createAsyncThunk('posts/deletePost', async (id) => {
-
   try {
     const response = await fetch(`${backendURL}/${id}`, {
       method: 'DELETE'
     })
-    if (response?.status === 200) return id;
-      // return `${response?.status}: ${response?.statusText}`;
+
+    if (response?.status === 200) return { id };
+
   } catch (err) {
       return err.message;
   }
@@ -112,12 +112,12 @@ const postsSlice = createSlice({
       .addCase(deleteArticle.fulfilled, (state, action) => {
         if (!action.payload?.id) {
           console.log('Delete could not complete')
-          console.log(action.payload)
+          console.log(`Ovo je payload koji sam dobio: ${action.payload}`)
           return;
         }
 
         const { id } = action.payload;
-        state.posts.filter(post => post._id !== id);
+        state.posts = state.posts.filter(post => post._id !== id);
       })
   }
 })
