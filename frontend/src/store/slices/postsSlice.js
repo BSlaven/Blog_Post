@@ -97,7 +97,13 @@ const postsSlice = createSlice({
         state.status = 'failed'
         state.error = action.error.message
       })
+      .addCase(createNewArticle.pending, (state, action) => {
+        state.posts.push(action.payload)
+      })
       .addCase(createNewArticle.fulfilled, (state, action) => {
+        state.posts.push(action.payload)
+      })
+      .addCase(createNewArticle.rejected, (state, action) => {
         state.posts.push(action.payload)
       })
       .addCase(updatePost.fulfilled, (state, action) => {
