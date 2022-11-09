@@ -98,10 +98,10 @@ const postsSlice = createSlice({
         state.error = action.error.message
       })
       .addCase(createNewArticle.pending, (state, action) => {
-        console.log(`I am still pending`)
+        state.status = 'loading';
       })
       .addCase(createNewArticle.fulfilled, (state, action) => {
-        state.posts.push(action.payload)
+        state.posts.push(action.payload);
       })
       .addCase(createNewArticle.rejected, (state, action) => {
         console.log(`Create new article request has been rejected`)
