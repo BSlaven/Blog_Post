@@ -10,7 +10,7 @@ const Posts = () => {
   const status = useSelector(fetchRequestStatus);
 
   return (
-    <div className="posts-container">      
+    <div className="posts-container">  
       {status === 'loading' ? <p>Loading Spinner</p> : null}
 
       {posts && posts.map(post => (
