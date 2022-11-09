@@ -9,8 +9,6 @@ const Posts = () => {
   const posts = useSelector(allPosts);
   const status = useSelector(fetchRequestStatus);
 
-  console.log(posts)
-
   return (
     <div className="posts-container">      
       {status === 'loading' ? <p>Loading Spinner</p> : null}
