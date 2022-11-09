@@ -102,9 +102,10 @@ const postsSlice = createSlice({
       })
       .addCase(createNewArticle.fulfilled, (state, action) => {
         state.posts.push(action.payload);
+        state.status = 'succeeded';
       })
       .addCase(createNewArticle.rejected, (state, action) => {
-        console.log(`Create new article request has been rejected`)
+        state.status = 'failed';
       })
       .addCase(updatePost.fulfilled, (state, action) => {
         if (!action.payload?.id) {
