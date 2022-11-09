@@ -101,7 +101,7 @@ const postsSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(createNewArticle.fulfilled, (state, action) => {
-        state.posts.push(action.payload);
+        state.posts.push(action.payload)
       })
       .addCase(createNewArticle.rejected, (state, action) => {
         console.log(`Create new article request has been rejected`)
