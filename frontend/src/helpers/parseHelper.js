@@ -1,7 +1,3 @@
-export const parseHtmlContent = block => {
-  
-}
-
 export const parseClasses = inlineStyles => {
   const classes = [];
   inlineStyles.forEach(item => {
