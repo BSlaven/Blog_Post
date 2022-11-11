@@ -14,7 +14,7 @@ const PostPage = () => {
   
   return (
     <div className="article-container">
-      {post && <h3>{post.title}</h3>}
+      <h1>{post.title}</h1>
     </div>
   )
 }
