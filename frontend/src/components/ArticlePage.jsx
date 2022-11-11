@@ -11,15 +11,14 @@ const ArticlePage = () => {
   const { id } = useParams();
 
   const post = useSelector(state => getPostById(state, id));
-  console.log(JSON.parse(post?.body))
 
   return (
     <div className="article-container">
       {post && <h1>{post.title}</h1>}
       {post && <h3>{post.description}</h3>}
       {post && JSON.parse(post.body).map(block => (
-        <div key={block.text} className="block-container">
-          {block.text}
+        <div key={block.text} className={`block-container ${parseClasses(block.inlineStyleRanges)}`}>
+          {block.type}
         </div>
       ))}
     </div>
