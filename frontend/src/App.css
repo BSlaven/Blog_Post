@@ -246,3 +246,22 @@ div.DraftEditor-root {
   outline-color: #333;
 }
 /* EDITOR TOOLBAR */
+
+/* ARTICLE PAGE */
+.article-container {
+  width: 100%;
+  max-width: 700px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  /* border: 1px solid red; */
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.12)
+}
+
+.article-container h1 {
+  text-align: center;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+/* ARTICLE PAGE */
