@@ -18,7 +18,7 @@ const ArticlePage = () => {
       {post && <h3>{post.description}</h3>}
       {post && JSON.parse(post.body).map(block => (
         <div key={block.text} className={`block-container ${parseClasses(block.inlineStyleRanges)}`}>
-          {block.type}
+          {block.text}
         </div>
       ))}
     </div>
