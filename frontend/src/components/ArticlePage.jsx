@@ -13,8 +13,10 @@ const ArticlePage = () => {
   return (
     <div className="article-container">
       {post && post.title}
-      {post && JSON.parse(post.body).map(item => (
-        <div key={item.text}>Slaven</div>
+      {post && JSON.parse(post.body).map(block => (
+        <div key={block.text}>
+          {block.text}
+        </div>
       ))}
     </div>
   )
