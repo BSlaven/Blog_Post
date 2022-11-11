@@ -16,5 +16,6 @@ export const parseClasses = inlineStyles => {
         classes.push('underline');
     }
   })
-  return classes.join(' ');
+  const textClasses = classes.join(' ');
+  return textClasses;
 }
