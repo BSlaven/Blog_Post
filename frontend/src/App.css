@@ -276,6 +276,14 @@ div.DraftEditor-root {
   font-weight: bold;
 }
 
+.article-container div.italic {
+  font-style: italic;
+}
+
+.article-container div.underline {
+  text-decoration: underline;
+}
+
 .article-container p {
   font-size: 1.2rem;
 }
