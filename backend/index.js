@@ -9,7 +9,7 @@ const dbAuthData = require('./devData')
 
 const port = process.env.PORT || 3001;
 
-const mongoURI = process.env.MONGO_PROD_URI || `mongodb+srv://${dbAuthData.korisnik}:${dbAuthData.password}@cluster0.azhgugx.mongodb.net/?retryWrites=true&w=majority`
+const mongoURI = process.env.MONGO_DEVELOPMENT_URI || `mongodb+srv://${dbAuthData.korisnik}:${dbAuthData.password}@cluster0.azhgugx.mongodb.net/?retryWrites=true&w=majority`
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
