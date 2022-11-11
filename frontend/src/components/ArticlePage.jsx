@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { getPostById } from '../store/slices/postsSlice'
 import { useParams } from 'react-router-dom'
 
-const PostPage = () => {
+const ArticlePage = () => {
 
   const { id } = useParams();
 
@@ -19,4 +19,4 @@ const PostPage = () => {
   )
 }
 
-export default PostPage
+export default ArticlePage
