@@ -5,7 +5,7 @@ export const parseHtmlContent = block => {
 export const parseClasses = inlineStyles => {
   const classes = [];
   inlineStyles.forEach(item => {
-    switch(item) {
+    switch(item.style) {
       case 'BOLD':
         classes.push('bold');
         break;
@@ -17,5 +17,6 @@ export const parseClasses = inlineStyles => {
     }
   })
   const textClasses = classes.join(' ');
+  console.log(classes)
   return textClasses;
 }

@@ -11,7 +11,7 @@ const ArticlePage = () => {
   const { id } = useParams();
 
   const post = useSelector(state => getPostById(state, id));
-  console.log(post)
+  console.log(JSON.parse(post?.body))
 
   return (
     <div className="article-container">
