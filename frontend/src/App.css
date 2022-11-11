@@ -264,4 +264,19 @@ div.DraftEditor-root {
   line-height: 1.1;
   margin-bottom: 2rem;
 }
+
+.article-container h3 {
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.article-container p {
+  font-size: 1.2rem;
+}
+
+.article-container .block-container {
+  border: 1px solid red;
+}
 /* ARTICLE PAGE */
