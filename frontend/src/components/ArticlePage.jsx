@@ -9,9 +9,11 @@ const PostPage = () => {
   const { id } = useParams();
 
   const post = useSelector(state => getPostById(state, id));
+
+  console.log(JSON.parse(post.body))
   
   return (
-    <div>
+    <div className="article-container">
       {post && <h3>{post.title}</h3>}
     </div>
   )
