@@ -10,11 +10,12 @@ const ArticlePage = () => {
 
   const post = useSelector(state => getPostById(state, id));
 
-  console.log(JSON.parse(post.body))
-  
   return (
     <div className="article-container">
-      <h1>{post.title}</h1>
+      {post && post.title}
+      {post && JSON.parse(post.body).map(item => (
+        <div key={item.text}>Slaven</div>
+      ))}
     </div>
   )
 }
