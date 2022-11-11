@@ -17,6 +17,5 @@ export const parseClasses = inlineStyles => {
     }
   })
   const textClasses = classes.join(' ');
-  console.log(classes)
   return textClasses;
 }
