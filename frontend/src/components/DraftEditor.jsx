@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Editor, EditorState, convertToRaw, ContentBlock } from 'draft-js';
+import { Editor, EditorState, convertToRaw } from 'draft-js';
 import '../../node_modules/draft-js/dist/Draft.css';
 import { useDispatch } from 'react-redux';
 
@@ -17,7 +17,7 @@ const DraftEditor = () => {
     setEditorState(editorState);
     dispatch(addCurrentArticle({ currentEditorState: convertToRaw(editorState.getCurrentContent()) }));
     console.log(convertToRaw(editorState.getCurrentContent()))
-    console.log(editorState.getCurrentContent())
+    // console.log(draftToHtml(editorState.getCurrentContent()))
   }
 
   // LINK: https://codesandbox.io/s/display-draft-js-as-html-forked-1e5jy5?file=/src/Example2.js:464-702
