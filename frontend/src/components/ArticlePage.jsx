@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import { getPostById } from '../store/slices/postsSlice';
 import { parseClasses } from '../helpers/parseHelper';
+import ParseHtmlContent from './ParseHtmlContent';
 
 const ArticlePage = () => {
 
