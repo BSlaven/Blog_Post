@@ -17,7 +17,6 @@ const DraftEditor = () => {
     setEditorState(editorState);
     dispatch(addCurrentArticle({ currentEditorState: convertToRaw(editorState.getCurrentContent()) }));
     console.log(convertToRaw(editorState.getCurrentContent()))
-    // console.log(draftToHtml(editorState.getCurrentContent()))
   }
 
   // LINK: https://codesandbox.io/s/display-draft-js-as-html-forked-1e5jy5?file=/src/Example2.js:464-702

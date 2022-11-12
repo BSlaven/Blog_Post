@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import draftToHtml from 'draftjs-to-html';
 import { stateToHTML } from 'draft-js-export-html';
+import { Markup } from 'interweave';
 
 import { getCurrentArticle } from '../store/slices/editorSlice';
 
@@ -9,27 +10,13 @@ const ArticlePreview = () => {
 
   const article = useSelector(state => getCurrentArticle(state));
 
-
-  console.log(article)
-  console.log(draftToHtml(article))
-
-  // const content = (
-  //   blocks && blocks.map(block => (
-  //     <div key={block.key}>
-  //       {block.type}
-  //     </div>
-  //   ))
-  // )
-
-  let html = stateToHTML(article);
-  console.log(html)
-
+  let rawHTML = draftToHtml(article);
+  const content = <Markup content={rawHTML} />;
 
 
   return (
-    // <div>{content}</div>
     <div>
-      slaven
+      {content}
     </div>
   )
 }
