@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import draftToHtml from 'draftjs-to-html';
-import { stateToHTML } from 'draft-js-export-html';
 import { Markup } from 'interweave';
 
 import { getCurrentArticle } from '../store/slices/editorSlice';
