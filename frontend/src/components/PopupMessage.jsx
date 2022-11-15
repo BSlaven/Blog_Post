@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PopupMessage = ({ message }) => {
+const PopupMessage = ({ success, message }) => {
   return (
     <p className={`popup-message ${success ? 'success' : 'error'}`}>
       {message}
