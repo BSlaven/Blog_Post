@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { getPostById } from '../store/slices/postsSlice';
-import { parseHtmlContent, parseClasses } from '../helpers/parseHelper';
+import { parseClasses } from '../helpers/parseHelper';
+import ParseHtmlContent from './ParseHtmlContent';
 
 const ArticlePage = () => {
 
