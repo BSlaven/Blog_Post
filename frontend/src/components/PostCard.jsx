@@ -24,7 +24,7 @@ const PostCard = ({ _id: id, title, description, author, createdAt: date }) => {
     <div className="card-container">
       <div className="post-header">
         <h3 className='post-title'>{title}</h3>
-        <button className="read-more-btn" onClick={readMoreClickHandler}>Read More</button>
+        <button className="read-more-btn" onClick={readMoreClickHandler}>Read</button>
       </div>
       <p className="post-description">{description}</p>
       <div className="post-details">
