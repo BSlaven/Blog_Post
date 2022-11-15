@@ -1,8 +1,10 @@
 import React from 'react'
 
-const PopupMessage = () => {
+const PopupMessage = ({ message }) => {
   return (
-    <div>PopupMessage</div>
+    <p>
+      {message}
+    </p>
   )
 }
 
