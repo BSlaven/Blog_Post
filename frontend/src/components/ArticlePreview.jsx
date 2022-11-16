@@ -1,23 +1,24 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import draftToHtml from 'draftjs-to-html';
+import { Markup } from 'interweave';
+import { Interweave } from 'interweave';
+import { stateToMarkdown } from 'draft-js-export-markdown';
+
 import { getCurrentArticle } from '../store/slices/editorSlice';
 
 const ArticlePreview = () => {
 
-  const { blocks } = useSelector(state => getCurrentArticle(state));
+  const article = useSelector(state => getCurrentArticle(state));
 
-  const content = (
-    blocks && blocks.map(block => (
-      <div key={block.key}>
-        {block.type}
-      </div>
-    ))
-  )
-
+  let rawHTML = stateToMarkdown(article);
+  const content = <Interweave content={rawHTML} />;
 
 
   return (
-    <div>{content}</div>
+    <div>
+      {content}
+    </div>
   )
 }
 

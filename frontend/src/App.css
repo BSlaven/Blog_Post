@@ -8,6 +8,9 @@
   --card-accent-color: #FFAFCC;
   --dark-accent-color: rgb(10, 0, 104);
   --main-bg-light: rgb(247, 245, 245);
+  --hue: 0;
+  --saturation: 100%;
+  --lightness: 50%;
 }
 
 body {
@@ -29,6 +32,7 @@ body {
 }
 
 .header {
+  position: relative;
   width: 100%;
   background-color: transparent;
   color: #333;
@@ -63,6 +67,35 @@ body {
 
 .nav-link:is(:hover, :focus) {
   color: rgb(3, 0, 29);
+}
+
+.popup-message {
+  position: absolute;
+  top: 6rem;
+  right: 1rem;
+  background-color: hsl(var(--hue), var(--saturation), 90%);
+  color: hsl(var(--hue), var(--saturation), 30%);
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  max-width: 220px;
+  height: min-content;
+  padding: 1rem;
+  text-align: center;
+  outline: 2px solid hsl(var(--hue), var(--saturation), 40%);
+  border-radius: 5px;
+  translate: 111%;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+}
+
+.popup-message.success {
+  --hue: 120;
+}
+
+.popup-message.open {
+  translate: 0;
+  opacity: 1;
 }
 
 /* new post page */
@@ -246,3 +279,50 @@ div.DraftEditor-root {
   outline-color: #333;
 }
 /* EDITOR TOOLBAR */
+
+/* ARTICLE PAGE */
+.article-container {
+  width: 100%;
+  max-width: 700px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  /* border: 1px solid red; */
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.12)
+}
+
+.article-container h1 {
+  text-align: center;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+
+.article-container h3 {
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.article-container div.bold {
+  font-weight: bold;
+}
+
+.article-container div.italic {
+  font-style: italic;
+}
+
+.article-container div.underline {
+  text-decoration: underline;
+}
+
+.article-container p {
+  font-size: 1.2rem;
+}
+
+.article-container .block-container {
+  border: 1px solid red;
+  margin-bottom: 1rem;
+}
+/* ARTICLE PAGE */
