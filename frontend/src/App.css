@@ -84,7 +84,7 @@ body {
   text-align: center;
   outline: 2px solid hsl(var(--hue), var(--saturation), 40%);
   border-radius: 5px;
-  translate: 111% 100px;
+  translate: 111%;
   opacity: 0;
   transition: all 200ms ease-in-out;
 }
@@ -93,8 +93,8 @@ body {
   --hue: 120;
 }
 
-.popup-bubble.open {
-  translate: 0 100px;
+.popup-message.open {
+  translate: 0;
   opacity: 1;
 }
 
