@@ -8,6 +8,9 @@
   --card-accent-color: #FFAFCC;
   --dark-accent-color: rgb(10, 0, 104);
   --main-bg-light: rgb(247, 245, 245);
+  --hue: 0;
+  --saturation: 100%;
+  --lightness: 50%;
 }
 
 body {
@@ -29,6 +32,7 @@ body {
 }
 
 .header {
+  position: relative;
   width: 100%;
   background-color: transparent;
   color: #333;
@@ -63,6 +67,35 @@ body {
 
 .nav-link:is(:hover, :focus) {
   color: rgb(3, 0, 29);
+}
+
+.popup-message {
+  position: absolute;
+  top: 6rem;
+  right: 1rem;
+  background-color: hsl(var(--hue), var(--saturation), 90%);
+  color: hsl(var(--hue), var(--saturation), 30%);
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  max-width: 220px;
+  height: min-content;
+  padding: 1rem;
+  text-align: center;
+  outline: 2px solid hsl(var(--hue), var(--saturation), 40%);
+  border-radius: 5px;
+  translate: 111%;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+}
+
+.popup-message.success {
+  --hue: 120;
+}
+
+.popup-message.open {
+  translate: 0;
+  opacity: 1;
 }
 
 /* new post page */
