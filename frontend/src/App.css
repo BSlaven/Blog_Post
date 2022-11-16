@@ -8,6 +8,9 @@
   --card-accent-color: #FFAFCC;
   --dark-accent-color: rgb(10, 0, 104);
   --main-bg-light: rgb(247, 245, 245);
+  --hue: 0;
+  --saturation: 100%;
+  --lightness: 50%;
 }
 
 body {
@@ -29,6 +32,7 @@ body {
 }
 
 .header {
+  position: relative;
   width: 100%;
   background-color: transparent;
   color: #333;
@@ -63,6 +67,13 @@ body {
 
 .nav-link:is(:hover, :focus) {
   color: rgb(3, 0, 29);
+}
+
+.popup-message {
+  position: absolute;
+  top: 6rem;
+  right: 1rem;
+  border: 1px solid red;
 }
 
 /* new post page */
