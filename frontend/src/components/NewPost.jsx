@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import DraftEditor from './DraftEditor';
 import ArticlePreview from './ArticlePreview';
 import { getCurrentArticle } from '../store/slices/editorSlice';
-import { createNewArticle, statusToIdle } from '../store/slices/postsSlice';
+import { createNewArticle, statusToIdle, clearRequestMessage } from '../store/slices/postsSlice';
 
 const NewPost = () => {
 
@@ -44,6 +44,10 @@ const NewPost = () => {
     setTimeout(() => {
       dispatch(statusToIdle());
     }, 2000)
+    
+    setTimeout(() => {
+      dispatch(clearRequestMessage());
+    }, 2100)
   }
 
   // FETCH ONE POST BY ID
