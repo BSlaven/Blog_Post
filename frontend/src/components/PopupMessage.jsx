@@ -6,7 +6,7 @@ import { fetchRequestStatus } from '../store/slices/postsSlice';
 const PopupMessage = ({ message }) => {
 
   const status = useSelector(fetchRequestStatus);
-  console.log(status)
+  
   const openClass = status === 'idle' ? '' : 'open' 
   const successClass = status === 'succeeded' ? 'success' : 'error';
 
