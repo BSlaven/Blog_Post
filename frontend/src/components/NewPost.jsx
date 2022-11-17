@@ -43,8 +43,11 @@ const NewPost = () => {
     dispatch(createNewArticle(myPost))
     setTimeout(() => {
       dispatch(statusToIdle());
-      dispatch(clearRequestMessage())
     }, 2000)
+    
+    setTimeout(() => {
+      dispatch(clearRequestMessage());
+    }, 2100)
   }
 
   // FETCH ONE POST BY ID
