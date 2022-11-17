@@ -15,7 +15,8 @@ const backendURL = 'http://localhost:3001/posts';
 const initialState = {
   status: 'idle', //'idle' | 'loading' | 'succeeded' | 'failed'
   error: null,
-  posts: []
+  posts: [],
+  requestMessage: ''
 }
 
 export const fetchAllPosts = createAsyncThunk('/posts/fetchAllPosts', async () => {
@@ -44,7 +45,8 @@ export const createNewArticle = createAsyncThunk('posts/addNewPost', async (newA
   //   console.log('napravio si grešku glupane')
   // }
 
-  return response.article
+  const { msg, article } = response;
+  return { msg, article }
 })
 
 export const updatePost = createAsyncThunk('posts/updatePost', async (initialPost) => {
@@ -99,6 +101,7 @@ const postsSlice = createSlice({
       .addCase(createNewArticle.fulfilled, (state, action) => {
         state.posts.push(action.payload);
         state.status = 'succeeded';
+
       })
       .addCase(createNewArticle.rejected, (state, action) => {
         state.status = 'failed';
