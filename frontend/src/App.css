@@ -70,17 +70,18 @@ body {
 }
 
 .popup-message {
-  position: absolute;
-  top: 6rem;
-  right: 1rem;
   background-color: hsl(var(--hue), var(--saturation), 90%);
-  color: hsl(var(--hue), var(--saturation), 30%);
-  font-weight: bold;
-  font-family: Arial, sans-serif;
   width: 100%;
   max-width: 220px;
   height: min-content;
   padding: 1rem;
+  position: absolute;
+  top: 6rem;
+  right: 1rem;
+  color: hsl(var(--hue), var(--saturation), 30%);
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 0.8rem;
   text-align: center;
   outline: 2px solid hsl(var(--hue), var(--saturation), 40%);
   border-radius: 5px;
