@@ -75,7 +75,9 @@ const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-		
+    statusToIdle(state, action) {
+        state.status = 'idle'
+    }
   },
   extraReducers(builder) {
     builder
@@ -138,7 +140,7 @@ const postsSlice = createSlice({
 //   (posts, userId) => posts.filter(post => post.userId === userId)
 // )
 
-// export const { reactionAdded } = postsSlice.actions
+export const { statusToIdle } = postsSlice.actions
 
 export const allPosts = state => state.posts.posts;
 export const fetchRequestStatus = state => state.posts.status;
