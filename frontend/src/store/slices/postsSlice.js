@@ -75,20 +75,22 @@ const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-		
+    statusToIdle(state, action) {
+        state.status = 'idle'
+    }
   },
   extraReducers(builder) {
     builder
       .addCase(fetchAllPosts.pending, (state, action) => {
-        state.status = 'loading'
+        // state.status = 'loading'
       })
       .addCase(fetchAllPosts.fulfilled, (state, action) => {
-        state.status = 'succeeded'
+        // state.status = 'succeeded'
 
         state.posts = action.payload;
       })
       .addCase(fetchAllPosts.rejected, (state, action) => {
-        state.status = 'failed'
+        // state.status = 'failed'
         state.error = action.error.message
       })
       .addCase(createNewArticle.pending, (state, action) => {
@@ -138,7 +140,7 @@ const postsSlice = createSlice({
 //   (posts, userId) => posts.filter(post => post.userId === userId)
 // )
 
-// export const { reactionAdded } = postsSlice.actions
+export const { statusToIdle } = postsSlice.actions
 
 export const allPosts = state => state.posts.posts;
 export const fetchRequestStatus = state => state.posts.status;

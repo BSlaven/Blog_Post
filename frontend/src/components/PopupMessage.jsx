@@ -1,8 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-const PopupMessage = ({ success, message }) => {
+import { fetchRequestStatus } from '../store/slices/postsSlice';
+
+const PopupMessage = ({ message }) => {
+
+  const status = useSelector(fetchRequestStatus);
+  
+  const openClass = status === 'idle' ? '' : 'open' 
+  const successClass = status === 'succeeded' ? 'success' : 'error';
+
   return (
-    <p className={`popup-message ${success ? 'success' : 'error'}`}>
+    <p className={`popup-message ${openClass} ${successClass}`}>
       {message}
     </p>
   )

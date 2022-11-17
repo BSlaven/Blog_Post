@@ -5,11 +5,9 @@ import PopupMessage from './PopupMessage';
 
 const Header = () => {
 
-  const success = false;
-  
   return (
     <header className='header'>
-      <PopupMessage success={success} message={'može li ova poruka'} />
+      <PopupMessage message={'može li ova poruka'} />
       <nav>
         <ul>
           <li>
