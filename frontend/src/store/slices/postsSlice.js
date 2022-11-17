@@ -97,15 +97,9 @@ const postsSlice = createSlice({
       .addCase(createNewArticle.fulfilled, (state, action) => {
         state.posts.push(action.payload);
         state.status = 'succeeded';
-        setTimeout(() => {
-          state.status = 'idle'
-        }, 2000)
       })
       .addCase(createNewArticle.rejected, (state, action) => {
         state.status = 'failed';
-        setTimeout(() => {
-          state.status = 'idle'
-        }, 2000)
       })
       .addCase(updatePost.fulfilled, (state, action) => {
         if (!action.payload?.id) {
