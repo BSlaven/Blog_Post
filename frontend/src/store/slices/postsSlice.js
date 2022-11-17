@@ -151,6 +151,7 @@ export const { statusToIdle, clearRequestMessage } = postsSlice.actions
 
 export const allPosts = state => state.posts.posts;
 export const fetchRequestStatus = state => state.posts.status;
+export const fetchRequestMessage = state => state.posts.requestMessage;
 export const getPostById = (state, id) => state.posts.posts.find(post => post._id === id);
 
 export default postsSlice.reducer
