@@ -7,11 +7,11 @@ const PopupMessage = ({ message }) => {
 
   const status = useSelector(fetchRequestStatus);
   console.log(status)
+  const openClass = status === 'idle' ? '' : 'open' 
+  const successClass = status === 'succeeded' ? 'success' : 'error';
 
-  const success = false;
-  
   return (
-    <p className={`popup-message open ${success ? 'success' : 'error'}`}>
+    <p className={`popup-message ${openClass} ${successClass}`}>
       {message}
     </p>
   )
