@@ -56,7 +56,7 @@ router.delete('/:id', async (req, res) => {
   try {
     const id = req.params.id
     await Post.findByIdAndRemove(id);
-    res.status(200).send({
+    res.status(200).json({
       msg: 'Post je uspješno obrisan'
     })
   } catch (error) {

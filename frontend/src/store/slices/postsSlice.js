@@ -62,14 +62,14 @@ export const updatePost = createAsyncThunk('posts/updatePost', async (initialPos
 
 export const deleteArticle = createAsyncThunk('posts/deletePost', async (id) => {
   try {
-    const response = await fetch(`${backendURL}/${id}`, {
+    const response = await fetch(`${backendURL}1/${id}`, {
       method: 'DELETE'
     })
-
+    
     if (response?.status === 200) return { id };
 
   } catch (err) {
-      return err.message;
+    return { err, msg: 'Neuspješno brisanje posata' }
   }
 })
 
@@ -125,8 +125,10 @@ const postsSlice = createSlice({
           console.log(`Ovo je payload koji sam dobio: ${action.payload}`)
           return;
         }
-
+        
         const { id } = action.payload;
+        state.status = 'succeeded';
+        state.requestMessage = action.payload.msg;
         state.posts = state.posts.filter(post => post._id !== id);
       })
   }
