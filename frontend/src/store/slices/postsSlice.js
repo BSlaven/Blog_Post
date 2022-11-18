@@ -62,14 +62,16 @@ export const updatePost = createAsyncThunk('posts/updatePost', async (initialPos
 
 export const deleteArticle = createAsyncThunk('posts/deletePost', async (id) => {
   try {
-    const response = await fetch(`${backendURL}1/${id}`, {
+    const response = await fetch(`${backendURL}/${id}`, {
       method: 'DELETE'
     })
+
+    const message = await response.json()
     
-    if (response?.status === 200) return { id };
+    if (response?.status === 200) return { id, msg: message.msg };
 
   } catch (err) {
-    return { err, msg: 'Neuspješno brisanje posata' }
+    return { err, msg: 'Neuspješno brisanje posta' }
   }
 })
 
@@ -130,6 +132,10 @@ const postsSlice = createSlice({
         state.status = 'succeeded';
         state.requestMessage = action.payload.msg;
         state.posts = state.posts.filter(post => post._id !== id);
+      })
+      .addCase(deleteArticle.rejected, (state, action) => {
+        state.status = 'failed';
+        state.requestMessage = action.payload.msg;
       })
   }
 })
