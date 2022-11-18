@@ -60,7 +60,9 @@ router.delete('/:id', async (req, res) => {
       msg: 'Post je uspješno obrisan'
     })
   } catch (error) {
-    console.log(error);
+    res.status(400).json({
+      msg: 'Neuspješno brisanje posta'
+    })
   }
 })
 
