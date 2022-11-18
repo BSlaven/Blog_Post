@@ -62,13 +62,15 @@ export const updatePost = createAsyncThunk('posts/updatePost', async (initialPos
 
 export const deleteArticle = createAsyncThunk('posts/deletePost', async (id) => {
   try {
-    const response = await fetch(`${backendURL}/${id}`, {
+    const response = await fetch(`${backendURL}/${id}a`, {
       method: 'DELETE'
     })
 
     const message = await response.json()
     
-    if (response?.status === 200) return { id, msg: message.msg };
+    if(response?.status === 200) {
+      return { id, msg: message.msg };
+    }
 
   } catch (err) {
     return { err, msg: 'Neuspješno brisanje posta' }
