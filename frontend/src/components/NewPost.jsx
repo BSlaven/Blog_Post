@@ -27,6 +27,7 @@ const NewPost = () => {
   }
 
   const formSubmitHandler = (e) => {
+    if(!!title.trim() || !!description.trim()) return;
     e.preventDefault();
     createNewPost();
   }
