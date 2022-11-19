@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { format } from 'date-fns';
 
-import { deleteArticle } from '../store/slices/postsSlice';
+import { clearRequestMessage, deleteArticle, statusToIdle } from '../store/slices/postsSlice';
 
 const PostCard = ({ _id: id, title, description, author, createdAt: date }) => {
 
@@ -18,6 +18,10 @@ const PostCard = ({ _id: id, title, description, author, createdAt: date }) => {
 
   const deletePostHandler = id => {
     dispatch(deleteArticle(id));
+    setTimeout(() => {
+      dispatch(statusToIdle());
+      dispatch(clearRequestMessage());
+    }, 2000)
   }
 
   return (

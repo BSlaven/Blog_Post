@@ -66,10 +66,16 @@ export const deleteArticle = createAsyncThunk('posts/deletePost', async (id) => 
       method: 'DELETE'
     })
 
-    if (response?.status === 200) return { id };
-
+    const message = await response.json();
+    
+    if(response?.status !== 200) {
+      return { msg: message.msg };
+    } else {
+      console.log(response.status)
+      return { msg: message.msg, id }
+    }
   } catch (err) {
-      return err.message;
+    return { err, msg: 'nisi uspjeo obrisati' }
   }
 })
 
@@ -121,12 +127,14 @@ const postsSlice = createSlice({
       })
       .addCase(deleteArticle.fulfilled, (state, action) => {
         if (!action.payload?.id) {
-          console.log('Delete could not complete')
-          console.log(`Ovo je payload koji sam dobio: ${action.payload}`)
+          state.status = 'failed';
+          state.requestMessage = action.payload.msg;
           return;
         }
-
+        
         const { id } = action.payload;
+        state.status = 'succeeded';
+        state.requestMessage = action.payload.msg;
         state.posts = state.posts.filter(post => post._id !== id);
       })
   }
