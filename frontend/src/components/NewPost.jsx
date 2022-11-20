@@ -29,7 +29,6 @@ const NewPost = () => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
     if(!title.trim() || !description.trim()) return;
-    console.log('došao sam ovdje.')
     createNewPost();
   }
 
