@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import DraftEditor from './DraftEditor';
 import ArticlePreview from './ArticlePreview';
 import { getCurrentArticle } from '../store/slices/editorSlice';
-import { createNewArticle, statusToIdle, clearRequestMessage } from '../store/slices/postsSlice';
+import { createNewArticle, statusToIdle, clearRequestMessage, fetchRequestStatus } from '../store/slices/postsSlice';
 
 const NewPost = () => {
 
@@ -13,8 +14,14 @@ const NewPost = () => {
   const [ description, setDescription ] = useState('');
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { blocks } = useSelector(state => getCurrentArticle(state));  
+  const status = useSelector(fetchRequestStatus);
+
+  if(status === 'succeeded') {
+    navigate('/')
+  }
 
   const handleInputChange = e => {
     if(e.target.id === 'title') {

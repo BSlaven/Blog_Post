@@ -37,7 +37,7 @@ export const createNewArticle = createAsyncThunk('posts/addNewPost', async (newA
     },
     body: JSON.stringify(newArticle)
   })
-
+  
   const response = await newlyCreatedPost.json();
   // if(newlyCreatedPost.ok) {
   //   console.log('uspješno si kreirao novi post')
