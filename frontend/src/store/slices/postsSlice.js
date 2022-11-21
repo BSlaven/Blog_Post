@@ -29,24 +29,24 @@ export const fetchAllPosts = createAsyncThunk('/posts/fetchAllPosts', async () =
 
 export const createNewArticle = createAsyncThunk('posts/addNewPost', async (newArticle) => {
 
-  const newlyCreatedPost = await fetch(`${backendURL}/newPost`, {
-    method: 'POST',
-    headers: {
-      'Accept':'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(newArticle)
-  })
-  
-  const response = await newlyCreatedPost.json();
-  // if(newlyCreatedPost.ok) {
-  //   console.log('uspješno si kreirao novi post')
-  // } else {
-  //   console.log('napravio si grešku glupane')
-  // }
+  try {
+    const newlyCreatedPost = await fetch(`${backendURL}/newPost`, {
+      method: 'POST',
+      headers: {
+        'Accept':'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newArticle)
+    })
 
-  const { msg, article } = response;
-  return { msg, article }
+    const response = await newlyCreatedPost.json();
+
+    const { msg, article } = response;
+    return { msg, article }
+
+  } catch(error) {
+    return { msg: 'Neuspješno si kreirao post'}
+  }
 })
 
 export const updatePost = createAsyncThunk('posts/updatePost', async (initialPost) => {
