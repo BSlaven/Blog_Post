@@ -29,7 +29,7 @@ export const fetchAllPosts = createAsyncThunk('/posts/fetchAllPosts', async () =
 
 export const createNewArticle = createAsyncThunk('posts/addNewPost', async (newArticle) => {
 
-  const newlyCreatedPost = await fetch(`${backendURL}/newPost`, {
+  const newlyCreatedPost = await fetch(`${backendURL}/nnewPost`, {
     method: 'POST',
     headers: {
       'Accept':'application/json',
@@ -38,6 +38,7 @@ export const createNewArticle = createAsyncThunk('posts/addNewPost', async (newA
     body: JSON.stringify(newArticle)
   })
 
+  console.log(newlyCreatedPost)
   const response = await newlyCreatedPost.json();
   // if(newlyCreatedPost.ok) {
   //   console.log('uspješno si kreirao novi post')
