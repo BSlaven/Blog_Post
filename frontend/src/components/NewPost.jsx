@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import DraftEditor from './DraftEditor';
 import ArticlePreview from './ArticlePreview';
@@ -13,6 +14,7 @@ const NewPost = () => {
   const [ description, setDescription ] = useState('');
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { blocks } = useSelector(state => getCurrentArticle(state));  
 
