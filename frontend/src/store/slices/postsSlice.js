@@ -52,7 +52,14 @@ export const createNewArticle = createAsyncThunk('posts/addNewPost', async (newA
 export const updatePost = createAsyncThunk('posts/updatePost', async (updatedArticle) => {
   const { id } = updatedArticle;
   try {
-  const response = await axios.put(`${backendURL}/edit/${id}`, updatedArticle)
+  const response = await fetch(`${backendURL}/edit/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Accept':'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(updatedArticle)
+  })
   return response.data
   } catch (err) {
   // return err.message
