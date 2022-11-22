@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import DraftEditor from './DraftEditor';
 import ArticlePreview from './ArticlePreview';
@@ -15,12 +15,17 @@ const NewPost = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { id } = useParams();
 
   const { blocks } = useSelector(state => getCurrentArticle(state));  
   const status = useSelector(fetchRequestStatus);
 
   if(status === 'succeeded') {
     navigate('/')
+  }
+
+  if(id) {
+    
   }
 
   const handleInputChange = e => {
