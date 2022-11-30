@@ -41,6 +41,11 @@ const NewPost = () => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
     if(!title.trim() || !description.trim()) return;
+    // if(id) {
+    //   updatePost()
+    // } else {
+    //   createNewPost();
+    // }
     createNewPost();
   }
 
@@ -54,6 +59,7 @@ const NewPost = () => {
     }
 
     dispatch(createNewArticle(myPost))
+    
     setTimeout(() => {
       dispatch(statusToIdle());
     }, 2000)

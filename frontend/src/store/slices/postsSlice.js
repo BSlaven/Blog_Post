@@ -49,7 +49,7 @@ export const createNewArticle = createAsyncThunk('posts/addNewPost', async (newA
   }
 })
 
-export const updatePost = createAsyncThunk('posts/updatePost', async (updatedArticle) => {
+export const updateArticle = createAsyncThunk('posts/updatePost', async (updatedArticle) => {
   const { id } = updatedArticle;
   try {
   const response = await fetch(`${backendURL}/edit/${id}`, {
