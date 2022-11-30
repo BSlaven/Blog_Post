@@ -49,10 +49,17 @@ export const createNewArticle = createAsyncThunk('posts/addNewPost', async (newA
   }
 })
 
-export const updatePost = createAsyncThunk('posts/updatePost', async (initialPost) => {
-  const { id } = initialPost;
+export const updateArticle = createAsyncThunk('posts/updatePost', async (updatedArticle) => {
+  const { id } = updatedArticle;
   try {
-  const response = await axios.put(`${POSTS_URL}/${id}`, initialPost)
+  const response = await fetch(`${backendURL}/edit/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Accept':'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(updatedArticle)
+  })
   return response.data
   } catch (err) {
   // return err.message
@@ -116,7 +123,7 @@ const postsSlice = createSlice({
         state.status = 'failed';
         state.requestMessage = action.payload.msg;
       })
-      .addCase(updatePost.fulfilled, (state, action) => {
+      .addCase(updateArticle.fulfilled, (state, action) => {
         if (!action.payload?.id) {
           console.log('Update could not complete')
           console.log(action.payload)
@@ -160,6 +167,6 @@ export const { statusToIdle, clearRequestMessage } = postsSlice.actions
 export const allPosts = state => state.posts.posts;
 export const fetchRequestStatus = state => state.posts.status;
 export const fetchRequestMessage = state => state.posts.requestMessage;
-export const getPostById = (state, id) => state.posts.posts.find(post => post._id === id);
+export const getArticleById = (state, id) => state.posts.posts.find(post => post._id === id);
 
 export default postsSlice.reducer

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import DraftEditor from './DraftEditor';
 import ArticlePreview from './ArticlePreview';
 import { getCurrentArticle } from '../store/slices/editorSlice';
-import { createNewArticle, statusToIdle, clearRequestMessage, fetchRequestStatus } from '../store/slices/postsSlice';
+import { getArticleById, updateArticle, createNewArticle, statusToIdle, clearRequestMessage, fetchRequestStatus } from '../store/slices/postsSlice';
 
 const NewPost = () => {
 
@@ -15,8 +15,9 @@ const NewPost = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { id } = useParams();
 
-  const { blocks } = useSelector(state => getCurrentArticle(state));  
+  const { blocks } = useSelector(state => getCurrentArticle(state));
   const status = useSelector(fetchRequestStatus);
 
   if(status === 'succeeded') {
@@ -36,10 +37,16 @@ const NewPost = () => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
     if(!title.trim() || !description.trim()) return;
+    // if(id) {
+    //   updatePost()
+    // } else {
+    //   createNewPost();
+    // }
     createNewPost();
   }
 
   const createNewPost = async (e) => {
+    console.log(blocks)
     const myPost = {
       title,
       description,
@@ -49,13 +56,14 @@ const NewPost = () => {
     }
 
     dispatch(createNewArticle(myPost))
+
     setTimeout(() => {
       dispatch(statusToIdle());
     }, 2000)
     
     setTimeout(() => {
       dispatch(clearRequestMessage());
-    }, 2100)
+    }, 2000)
   }
 
   // FETCH ONE POST BY ID
@@ -67,23 +75,23 @@ const NewPost = () => {
   // UPDATE POST
   const updatePost = async (e) => {
 
-    const updatedPost = {
-      title: 'Jedan kratki title',
-      body: 'Kokolo ko',
+    const updatedArticle = {      
+      title,
+      description,
+      body: JSON.stringify(blocks),
       createdAt: Date.now(),
       author: 'Slaven Bunijevac'
     }
 
-    const response = await fetch(`http://localhost:3001/posts/edit/6355c00851364b05946cc917`, {
-      method: 'PUT',
-      headers: {
-        'Accept':'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(updatedPost)
-    })
+    dispatch(updateArticle(updatedArticle))
 
-    const postUpdateResponse = await response.json();
+    setTimeout(() => {
+      dispatch(statusToIdle());
+    }, 2000)
+    
+    setTimeout(() => {
+      dispatch(clearRequestMessage());
+    }, 2000)
   }
 
   return (
