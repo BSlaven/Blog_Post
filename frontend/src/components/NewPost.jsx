@@ -66,7 +66,7 @@ const NewPost = () => {
     
     setTimeout(() => {
       dispatch(clearRequestMessage());
-    }, 2100)
+    }, 2000)
   }
 
   // FETCH ONE POST BY ID
@@ -88,7 +88,13 @@ const NewPost = () => {
 
     dispatch(updateArticle(updatedArticle))
 
+    setTimeout(() => {
+      dispatch(statusToIdle());
+    }, 2000)
     
+    setTimeout(() => {
+      dispatch(clearRequestMessage());
+    }, 2000)
   }
 
   return (
