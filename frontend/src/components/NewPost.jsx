@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import DraftEditor from './DraftEditor';
 import ArticlePreview from './ArticlePreview';
 import { getCurrentArticle } from '../store/slices/editorSlice';
-import { updateArticle, createNewArticle, statusToIdle, clearRequestMessage, fetchRequestStatus } from '../store/slices/postsSlice';
+import { getArticleById, updateArticle, createNewArticle, statusToIdle, clearRequestMessage, fetchRequestStatus } from '../store/slices/postsSlice';
 
 const NewPost = () => {
 
@@ -17,7 +17,7 @@ const NewPost = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const { blocks } = useSelector(state => getCurrentArticle(state));  
+  const { blocks } = useSelector(state => getCurrentArticle(state));
   const status = useSelector(fetchRequestStatus);
 
   if(status === 'succeeded') {

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { getPostById } from '../store/slices/postsSlice';
+import { getArticleById } from '../store/slices/postsSlice';
 import { parseClasses } from '../helpers/parseHelper';
 import ParseHtmlContent from './ParseHtmlContent';
 
@@ -10,7 +10,7 @@ const ArticlePage = () => {
 
   const { id } = useParams();
 
-  const post = useSelector(state => getPostById(state, id));
+  const post = useSelector(state => getArticleById(state, id));
 
   return (
     <div className="article-container">
