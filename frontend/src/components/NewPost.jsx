@@ -24,10 +24,6 @@ const NewPost = () => {
     navigate('/')
   }
 
-  if(id) {
-    
-  }
-
   const handleInputChange = e => {
     if(e.target.id === 'title') {
       setTitle(e.target.value);
@@ -78,7 +74,7 @@ const NewPost = () => {
   // UPDATE POST
   const updatePost = async (e) => {
 
-    const updatedArticle = {
+    const updatedArticle = {      
       title,
       description,
       body: JSON.stringify(blocks),
