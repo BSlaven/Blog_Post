@@ -123,7 +123,7 @@ const postsSlice = createSlice({
         state.status = 'failed';
         state.requestMessage = action.payload.msg;
       })
-      .addCase(updatePost.fulfilled, (state, action) => {
+      .addCase(updateArticle.fulfilled, (state, action) => {
         if (!action.payload?.id) {
           console.log('Update could not complete')
           console.log(action.payload)
