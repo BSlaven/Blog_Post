@@ -80,7 +80,7 @@ const NewPost = () => {
       author: 'Slaven Bunijevac'
     }
 
-    const response = await fetch(`http://localhost:3001/posts/edit/6355c00851364b05946cc917`, {
+    const response = await fetch(`http://localhost:3001/posts/edit/${id}`, {
       method: 'PUT',
       headers: {
         'Accept':'application/json',
