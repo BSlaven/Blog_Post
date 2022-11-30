@@ -46,6 +46,7 @@ const NewPost = () => {
   }
 
   const createNewPost = async (e) => {
+    console.log(blocks)
     const myPost = {
       title,
       description,
