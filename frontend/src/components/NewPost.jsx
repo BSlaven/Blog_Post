@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import DraftEditor from './DraftEditor';
 import ArticlePreview from './ArticlePreview';
 import { getCurrentArticle } from '../store/slices/editorSlice';
-import { createNewArticle, statusToIdle, clearRequestMessage, fetchRequestStatus } from '../store/slices/postsSlice';
+import { updateArticle, createNewArticle, statusToIdle, clearRequestMessage, fetchRequestStatus } from '../store/slices/postsSlice';
 
 const NewPost = () => {
 
@@ -59,7 +59,7 @@ const NewPost = () => {
     }
 
     dispatch(createNewArticle(myPost))
-    
+
     setTimeout(() => {
       dispatch(statusToIdle());
     }, 2000)
@@ -78,7 +78,7 @@ const NewPost = () => {
   // UPDATE POST
   const updatePost = async (e) => {
 
-    const updatedPost = {
+    const updatedArticle = {
       title,
       description,
       body: JSON.stringify(blocks),
@@ -86,16 +86,9 @@ const NewPost = () => {
       author: 'Slaven Bunijevac'
     }
 
-    const response = await fetch(`http://localhost:3001/posts/edit/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Accept':'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(updatedPost)
-    })
+    dispatch(updateArticle(updatedArticle))
 
-    const postUpdateResponse = await response.json();
+    
   }
 
   return (
