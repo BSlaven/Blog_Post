@@ -73,8 +73,9 @@ const NewPost = () => {
   const updatePost = async (e) => {
 
     const updatedPost = {
-      title: 'Jedan kratki title',
-      body: 'Kokolo ko',
+      title,
+      description,
+      body: JSON.stringify(blocks),
       createdAt: Date.now(),
       author: 'Slaven Bunijevac'
     }
