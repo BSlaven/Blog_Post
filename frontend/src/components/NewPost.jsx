@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -22,11 +22,10 @@ const NewPost = () => {
   const status = useSelector(fetchRequestStatus);
   const articleToUpdate = useSelector(state => getArticleById(state, id))
   
-
   useEffect(() => {
     setTitle(articleToUpdate?.title);
     setDescription(articleToUpdate?.description)
-  }, [articleToUpdate])
+  }, [id])
 
   if(status === 'succeeded') {
     navigate('/')
