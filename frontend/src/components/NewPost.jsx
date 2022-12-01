@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -16,9 +16,17 @@ const NewPost = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
+  console.count('dobio sam id: ', id)
 
   const { blocks } = useSelector(state => getCurrentArticle(state));
   const status = useSelector(fetchRequestStatus);
+  const articleToUpdate = useSelector(state => getArticleById(state, id))
+  
+
+  useEffect(() => {
+    setTitle(articleToUpdate?.title);
+    setDescription(articleToUpdate?.description)
+  }, [articleToUpdate])
 
   if(status === 'succeeded') {
     navigate('/')
