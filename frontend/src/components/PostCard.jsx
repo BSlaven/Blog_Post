@@ -16,8 +16,8 @@ const PostCard = ({ _id: id, title, description, author, createdAt: date }) => {
     navigate(`/posts/${id}`);
   }
 
-  const navigateToEditArticle = e => {
-    navigate(`/posts`)
+  const navigateToEditArticleForm = e => {
+    navigate(`/article-form/${id}`)
   }
 
   const deletePostHandler = id => {
@@ -36,7 +36,7 @@ const PostCard = ({ _id: id, title, description, author, createdAt: date }) => {
       </div>
       <p className="post-description">{description}</p>
       <div className="post-details">
-        <p className="post-author">By {author}</p>
+        <p onClick={navigateToEditArticleForm} className="post-author">By {author}</p>
         <span onClick={() => deletePostHandler(id)} className="post-date">{formattedDate}</span>
       </div>
     </div>
