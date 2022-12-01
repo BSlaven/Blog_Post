@@ -16,6 +16,10 @@ const PostCard = ({ _id: id, title, description, author, createdAt: date }) => {
     navigate(`/posts/${id}`);
   }
 
+  const navigateToEditArticle = e => {
+    navigate(`/posts`)
+  }
+
   const deletePostHandler = id => {
     dispatch(deleteArticle(id));
     setTimeout(() => {

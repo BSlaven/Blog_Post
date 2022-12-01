@@ -16,7 +16,8 @@ function App() {
             <Route path='posts/:id'>
               <Route index element={<ArticlePage />} />
             </Route>
-            <Route path='new' element={<NewPost />} />
+            <Route path='article-form' element={<NewPost />} />
+            <Route path='article-form/:id' element={<NewPost />} />
           </Route>
         </Routes>
       </Router>
