@@ -16,7 +16,6 @@ const ArticleForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
-  console.count('dobio sam id: ', id)
 
   const { blocks } = useSelector(state => getCurrentArticle(state));
   const status = useSelector(fetchRequestStatus);
