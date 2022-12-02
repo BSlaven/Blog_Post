@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -25,7 +25,7 @@ const ArticleForm = () => {
   useEffect(() => {
     setTitle(articleToUpdate?.title);
     setDescription(articleToUpdate?.description)
-  }, [id])
+  }, [])
 
   if(status === 'succeeded') {
     navigate('/')
