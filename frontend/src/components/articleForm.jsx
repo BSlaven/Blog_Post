@@ -7,7 +7,7 @@ import ArticlePreview from './ArticlePreview';
 import { getCurrentArticle } from '../store/slices/editorSlice';
 import { getArticleById, updateArticle, createNewArticle, statusToIdle, clearRequestMessage, fetchRequestStatus } from '../store/slices/postsSlice';
 
-const NewPost = () => {
+const ArticleForm = () => {
 
   const [ showPreview, setShowPreview ] = useState(false);
   const [ title, setTitle ] = useState('');
@@ -141,4 +141,4 @@ const NewPost = () => {
   )
 }
 
-export default NewPost
+export default ArticleForm

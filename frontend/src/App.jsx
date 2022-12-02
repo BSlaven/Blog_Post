@@ -4,7 +4,7 @@ import './App.css'
 import Layout from './components/Layout';
 import Posts from './components/Posts';
 import ArticlePage from './components/ArticlePage';
-import NewPost from './components/NewPost';
+import ArticleForm from './components/articleForm';
 
 function App() {
 
@@ -16,8 +16,8 @@ function App() {
             <Route path='posts/:id'>
               <Route index element={<ArticlePage />} />
             </Route>
-            <Route path='article-form' element={<NewPost />} />
-            <Route path='article-form/:id' element={<NewPost />} />
+            <Route path='article-form' element={<ArticleForm />} />
+            <Route path='article-form/:id' element={<ArticleForm />} />
           </Route>
         </Routes>
       </Router>
