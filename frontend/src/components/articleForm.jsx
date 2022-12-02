@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import DraftEditor from './DraftEditor';
 import ArticlePreview from './ArticlePreview';
-import { getCurrentArticle } from '../store/slices/editorSlice';
+import { addCurrentArticle, getCurrentArticle } from '../store/slices/editorSlice';
 import { getArticleById, updateArticle, createNewArticle, statusToIdle, clearRequestMessage, fetchRequestStatus } from '../store/slices/postsSlice';
 
 const ArticleForm = () => {
@@ -23,8 +23,9 @@ const ArticleForm = () => {
   
   useEffect(() => {
     setTitle(articleToUpdate?.title);
-    setDescription(articleToUpdate?.description)
-  }, [])
+    setDescription(articleToUpdate?.description);
+    dispatch(addCurrentArticle({ currentEditorState: articleToUpdate?.body}))
+  }, [articleToUpdate])
 
   if(status === 'succeeded') {
     navigate('/')
