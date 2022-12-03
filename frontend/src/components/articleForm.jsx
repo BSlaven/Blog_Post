@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { convertFromRaw } from 'draft-js';
+
 
 import DraftEditor from './DraftEditor';
 import ArticlePreview from './ArticlePreview';
-import { getCurrentArticle } from '../store/slices/editorSlice';
+import { addCurrentArticle, getCurrentArticle } from '../store/slices/editorSlice';
 import { getArticleById, updateArticle, createNewArticle, statusToIdle, clearRequestMessage, fetchRequestStatus } from '../store/slices/postsSlice';
 
-const NewPost = () => {
+const ArticleForm = () => {
 
   const [ showPreview, setShowPreview ] = useState(false);
   const [ title, setTitle ] = useState('');
@@ -19,6 +21,13 @@ const NewPost = () => {
 
   const { blocks } = useSelector(state => getCurrentArticle(state));
   const status = useSelector(fetchRequestStatus);
+  const articleToUpdate = useSelector(state => getArticleById(state, id))
+  
+  useEffect(() => {
+    setTitle(articleToUpdate?.title);
+    setDescription(articleToUpdate?.description);
+    dispatch(addCurrentArticle({ currentEditorState: articleToUpdate?.body}))
+  }, [articleToUpdate])
 
   if(status === 'succeeded') {
     navigate('/')
@@ -46,7 +55,6 @@ const NewPost = () => {
   }
 
   const createNewPost = async (e) => {
-    console.log(blocks)
     const myPost = {
       title,
       description,
@@ -134,4 +142,4 @@ const NewPost = () => {
   )
 }
 
-export default NewPost
+export default ArticleForm
