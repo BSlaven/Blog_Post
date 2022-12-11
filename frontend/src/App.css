@@ -8,7 +8,7 @@
   --card-accent-color: #FFAFCC;
   --dark-accent-color: rgb(10, 0, 104);
   --main-bg-light: rgb(247, 245, 245);
-  --hue: 0;
+  --hue: var(--main-bg-light);
   --saturation: 100%;
   --lightness: 50%;
 }
@@ -87,11 +87,15 @@ body {
   border-radius: 5px;
   translate: 111%;
   opacity: 0;
-  transition: all 200ms ease-in-out;
+  transition: translate 200ms ease-in-out;
 }
 
 .popup-message.success {
   --hue: 120;
+}
+
+.popup-message.error {
+  --hue: 0;
 }
 
 .popup-message.open {

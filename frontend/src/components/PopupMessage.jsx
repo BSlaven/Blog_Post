@@ -12,7 +12,7 @@ const PopupMessage = () => {
   const successClass = status === 'succeeded' ? 'success' : 'error';
 
   return (
-    <p className={`popup-message ${openClass} ${successClass}`}>
+    <p className={`popup-message ${openClass} ${status === 'idle' ? '' :  successClass}`}>
       {message}
     </p>
   )
